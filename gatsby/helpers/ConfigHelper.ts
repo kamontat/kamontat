@@ -1,11 +1,14 @@
 import { env, type } from "@kcutils/helper"
 import { join } from "path"
+
+import { SupportLogger } from "./SupportLogger"
 import pjson from "../../package.json"
 
 type PackageJson = typeof pjson
-export class ConfigHelper {
+export class ConfigHelper extends SupportLogger {
   private pjson: PackageJson
   constructor(private rootpath: string) {
+    super()
     this.pjson = pjson
   }
 
@@ -41,6 +44,8 @@ export class ConfigHelper {
 
   getEnv(key: string): type.WithUndefined<string> {
     const str = env.read(key, "")
+    this.logger.print("info", { message: `${key}: return '${str}'`, scopes: ["env"] })
+
     if (str === "") return undefined
     else return str
   }

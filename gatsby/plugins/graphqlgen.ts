@@ -1,4 +1,3 @@
-import { string } from "@kcutils/helper"
 import { DefaultPluginOption } from "./base"
 
 export interface GraphqlCodegenOptions extends DefaultPluginOption {

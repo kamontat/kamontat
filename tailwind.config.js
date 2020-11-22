@@ -3,17 +3,11 @@
 /* eslint-disable */
 
 // @todo #2 upgrade tailwindcss to version 2
-const colors = require("tailwindcss/colors")
+// const colors = require("tailwindcss/colors")
 
 // @todo #3 modified configuration to related personal
 module.exports = {
   theme: {
-    colors: {
-      gray: colors.coolGray,
-      blue: colors.lightBlue,
-      red: colors.rose,
-      pink: colors.fuchsia,
-    },
     fontFamily: {
       sans: ["Graphik", "sans-serif"],
       serif: ["Merriweather", "serif"],
