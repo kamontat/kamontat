@@ -34,11 +34,44 @@ export default ({ projectRoot }: TSConfigSetupOptions): GatsbyConfig => {
 
   const pluginBuilder = new PluginBuilder<PluginMapping>()
 
-  // https://www.gatsbyjs.org/packages/gatsby-source-filesystem
-  pluginBuilder.new("gatsby-source-filesystem", { name: "images", path: helper.joinRootPath("src", "images") })
+  // https://www.gatsbyjs.org/packages/gatsby-plugin-netlify
+  pluginBuilder.new("gatsby-plugin-netlify", {
+    headers: {
+      "/*": [
+        `X-Application-Name: ${helper.getPackageJson("name")}`,
+        `X-Application-Version: ${helper.getPackageJson("version")}`,
+      ],
+    },
+  })
+
+  // https://www.gatsbyjs.org/packages/gatsby-plugin-sentry
+  pluginBuilder.new(`gatsby-plugin-sentry`, {
+    dsn: helper.getEnv(constants.SENTRY_DSN),
+    enabled: helper.isProd(),
+    debug: false,
+    environment: "production",
+    release: `${helper.getPackageJson("name")}@v${helper.getPackageJson("version")}`,
+    maxBreadcrumbs: 50,
+  })
+
+  // https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap
+  pluginBuilder.new("gatsby-plugin-sitemap")
+
+  // TODO: upgrade gatsby-source-contentful to version 4
+
+  // https://www.gatsbyjs.org/packages/gatsby-source-contentful
+  pluginBuilder.new(`gatsby-source-contentful`, {
+    // host: "cdn.contentful.com",
+    spaceId: helper.getEnv(constants.CONTENTFUL_SPACE_ID),
+    accessToken: helper.getEnv(constants.CONTENTFUL_DELIVERY_ACCESS_TOKEN),
+    downloadLocal: true,
+  })
 
   // https://www.gatsbyjs.org/packages/gatsby-plugin-react-helmet
   pluginBuilder.new("gatsby-plugin-react-helmet")
+
+  // https://www.gatsbyjs.org/packages/gatsby-source-filesystem
+  pluginBuilder.new("gatsby-source-filesystem", { name: "images", path: helper.joinRootPath("src", "images") })
 
   // https://www.gatsbyjs.org/packages/gatsby-plugin-sharp/
   pluginBuilder.new(`gatsby-plugin-sharp`)
@@ -60,7 +93,11 @@ export default ({ projectRoot }: TSConfigSetupOptions): GatsbyConfig => {
   // https://www.gatsbyjs.org/packages/gatsby-plugin-graphql-codegen
   pluginBuilder.new("gatsby-plugin-graphql-codegen", {
     fileName: helper.joinPath("types", "gatsby-graphql.ts"),
-    documentPaths: [helper.joinPath("src", "**", "*.{ts,tsx}")],
+    documentPaths: [
+      helper.joinPath("src", "**", "*.{ts,tsx}"),
+      helper.joinPath("node_modules", "gatsby-*", "**", "*.js"),
+      helper.joinPath(".cache", "fragments", "*.js"),
+    ],
   })
 
   // https://www.gatsbyjs.org/packages/gatsby-plugin-google-tagmanager
@@ -72,34 +109,6 @@ export default ({ projectRoot }: TSConfigSetupOptions): GatsbyConfig => {
     routeChangeEventName: "gatsby-route-change",
   })
 
-  // https://www.gatsbyjs.org/packages/gatsby-source-contentful
-  pluginBuilder.disabled().new(`gatsby-source-contentful`, {
-    host: "cdn.contentful.com",
-    spaceId: helper.getEnv(constants.CONTENTFUL_SPACE_ID),
-    accessToken: helper.getEnv(constants.CONTENTFUL_DELIVERY_ACCESS_TOKEN),
-    downloadLocal: true,
-  })
-
-  // https://www.gatsbyjs.org/packages/gatsby-plugin-netlify
-  pluginBuilder.new("gatsby-plugin-netlify", {
-    headers: {
-      "/*": [
-        `X-Application-Name: ${helper.getPackageJson("name")}`,
-        `X-Application-Version: ${helper.getPackageJson("version")}`,
-      ],
-    },
-  })
-
-  // https://www.gatsbyjs.org/packages/gatsby-plugin-sentry
-  pluginBuilder.new(`gatsby-plugin-sentry`, {
-    dsn: helper.getEnv(constants.SENTRY_DSN),
-    enabled: helper.isProd(),
-    debug: false,
-    environment: "production",
-    release: `${helper.getPackageJson("name")}@v${helper.getPackageJson("version")}`,
-    maxBreadcrumbs: 50,
-  })
-
   // TODO: remove babel config in gatsby-config.js and remove @babel/plugin-proposal-decorators @emotion/babel-plugin-jsx-pragmatic after gatsby-plugin-emotion already support emotion 11
 
   // https://www.gatsbyjs.org/packages/gatsby-plugin-emotion
@@ -109,9 +118,6 @@ export default ({ projectRoot }: TSConfigSetupOptions): GatsbyConfig => {
     autoLabel: helper.isDev(),
     labelFormat: helper.isDev() ? "[filename]-[local]" : "",
   })
-
-  // https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap
-  pluginBuilder.new("gatsby-plugin-sitemap")
 
   return ConfigBuilder.new().apply("siteMetadata", metaBuilder).apply("plugins", pluginBuilder).build()
 }
