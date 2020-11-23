@@ -4,6 +4,7 @@ on:
 
 jobs:
   test:
+    name: "Unit-test"
     runs-on: ubuntu-latest
 
     strategy:

@@ -1,10 +1,8 @@
 name: Publish on Netlify
 on:
-  workflow_run:
-    workflows: ["End2End", "UnitTest"]
-    branches: [main]
-    types:
-      - completed
+  push:
+    branches:
+      - release
 
 jobs:
   publish:

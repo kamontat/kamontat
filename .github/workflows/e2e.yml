@@ -9,14 +9,21 @@ on:
 
 jobs:
   e2e:
+    name: "Integration-test"
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    needs:
+      - test
     steps:
       - uses: actions/checkout@master
-      - name: Use Node.js 14.x
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-          node-version: 14.x
+          node-version: ${{ matrix.node-version }}
       - run: yarn
       - run: yarn test:e2e:ci
         env:
