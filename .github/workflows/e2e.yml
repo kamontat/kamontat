@@ -11,10 +11,6 @@ jobs:
   e2e:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x]
-
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js 14.x

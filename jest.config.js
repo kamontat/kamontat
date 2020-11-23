@@ -16,7 +16,7 @@ module.exports = {
       "assets.js"
     ),
   },
-  testPathIgnorePatterns: [`node_modules`, `\\.cache`, `<rootDir>.*/public`],
+  testPathIgnorePatterns: [`node_modules`, `\\.cache`, `<rootDir>.*/public`, `cypress`],
   transformIgnorePatterns: [`node_modules/(?!(gatsby)/)`],
   globals: {
     __PATH_PREFIX__: ``,
