@@ -1,0 +1,18 @@
+type.test:
+  - test/**/*.spec.ts
+
+type.config:
+  - gatsby/**/*.ts
+  - gatsby-config.js
+  
+type.data:
+  - data/**/*.json
+
+type.style:
+  - src/**/*.css
+  - src/**/*.scss
+  - src/**/*.sass
+
+type.doc:
+  - README.md
+  - docs/**/*.md
