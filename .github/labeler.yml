@@ -12,3 +12,6 @@ type.style:
   - src/**/*.css
   - src/**/*.scss
   - src/**/*.sass
+
+type.doc:
+  - **/*.md
