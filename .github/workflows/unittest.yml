@@ -1,14 +1,9 @@
 name: UnitTest
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+  - push
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     strategy:
