@@ -2,10 +2,10 @@
 
 /* eslint-disable */
 
-// @todo #2 upgrade tailwindcss to version 2
+// TODO upgrade tailwindcss to version 2
 // const colors = require("tailwindcss/colors")
 
-// @todo #3 modified configuration to related personal
+// TODO modified configuration to related personal
 module.exports = {
   theme: {
     fontFamily: {

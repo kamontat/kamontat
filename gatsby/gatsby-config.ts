@@ -100,7 +100,8 @@ export default ({ projectRoot }: TSConfigSetupOptions): GatsbyConfig => {
     maxBreadcrumbs: 50,
   })
 
-  // @todo #1 remove babel config in gatsby-config.js and remove @babel/plugin-proposal-decorators @emotion/babel-plugin-jsx-pragmatic after gatsby-plugin-emotion already support emotion 11
+  // TODO: remove babel config in gatsby-config.js and remove @babel/plugin-proposal-decorators @emotion/babel-plugin-jsx-pragmatic after gatsby-plugin-emotion already support emotion 11
+
   // https://www.gatsbyjs.org/packages/gatsby-plugin-emotion
   pluginBuilder.disabled().new(`gatsby-plugin-emotion`, {
     cssPropOptimization: true,
