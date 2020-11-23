@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 
 const IndexPage = (): JSX.Element => (
   <Layout>
-    <SEO title="Home" />
+    <SEO title="Home" lang="en" />
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
