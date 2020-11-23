@@ -1,9 +1,10 @@
-name: "Todo"
-on: ["push"]
+name: Todo
+on: [push]
 
 jobs:
   build:
-    runs-on: "ubuntu-latest"
+    runs-on: ubuntu-latest
+
     steps:
       - uses: "actions/checkout@master"
       - name: "TODO to Issue"
