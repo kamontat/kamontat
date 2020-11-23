@@ -1,10 +1,14 @@
-# Add 'test' label to any change to *.spec.js files within the source dir
-@gatsby/test:
+type.test:
   - test/**/*.spec.ts
 
-@gatsby/config:
+type.config:
   - gatsby/**/*.ts
   - gatsby-config.js
   
-@data/local:
+type.data:
   - data/**/*.json
+
+type.style:
+  - src/**/*.css
+  - src/**/*.scss
+  - src/**/*.sass
