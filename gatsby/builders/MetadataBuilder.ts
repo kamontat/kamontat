@@ -1,5 +1,5 @@
 import { GatsbyConfig } from "gatsby"
-import { generic } from "@kcutils/helper"
+import { generic, type } from "@kcutils/helper"
 
 import { Builder } from "./Builder"
 import { SupportLogger } from "../helpers/SupportLogger"
@@ -18,9 +18,13 @@ export class MetadataBuilder<O extends MetadataObject> extends SupportLogger imp
     return this as MetadataBuilder<O & OO>
   }
 
-  new<K extends string, V = unknown>(key: K, value: V): MetadataBuilder<O & Record<K, V>> {
-    this.logger.print("info", { message: `create new metadata { [${key}]: "${value}" }`, scopes: ["meta"] })
-    if (generic.isExist(this.metadata)) this.metadata[key] = value as O[K]
+  new<K extends string, V = unknown>(key: K, value: type.WithUndefined<V>): MetadataBuilder<O & Record<K, V>> {
+    if (generic.isExist(this.metadata)) {
+      this.logger.print("info", { message: `create new metadata { [${key}]: "${value}" }`, scopes: ["meta"] })
+      this.metadata[key] = value as O[K]
+    } else {
+      this.logger.print("warn", { message: `ignore [${key}] because base metadata is not exist`, scopes: ["meta"] })
+    }
     return this as MetadataBuilder<O & Record<K, V>>
   }
 
