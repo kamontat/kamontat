@@ -5,7 +5,7 @@ import tw, { GlobalStyles, styled } from "twin.macro"
 
 import Base, { BaseOptions } from "./Base"
 
-import SEO from "../components/seo"
+import SEO from "../components/Metadata"
 import { Header } from "./components/Header"
 
 import { DefaultLayoutQueryQuery } from "../../types/gatsby-graphql"
