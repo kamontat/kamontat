@@ -5,8 +5,10 @@ import { ThemeProvider } from "@emotion/react"
 import { ThemeName, ThemeProperties } from "../features/theme"
 import { useThemeContext } from "../features/theme/context"
 
-export interface BaseOptions {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export interface BaseOptions<T = any> {
   children?: React.ReactNode
+  pageContext?: T
 }
 
 interface GlobalStylesOptions extends BaseOptions {
