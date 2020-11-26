@@ -20,7 +20,7 @@
   # functions = "project/functions/"
 
 [build.environment]
-  NODE_ENV = "development"
+  NODE_ENV = "production"
   NODE_VERSION = "15"
   YARN_VERSION = "1.22.10"
   YARN_FLAGS = "--ignore-optional"
