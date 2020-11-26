@@ -1,10 +1,10 @@
 import React from "react"
 import renderer from "react-test-renderer"
-import Header from "../header"
+import ComingSoon from "../ComingSoon"
 
-describe("Header", () => {
+describe("ComingSoon", () => {
   it("renders correctly", () => {
-    const tree = renderer.create(<Header siteTitle="Default Starter" />).toJSON()
+    const tree = renderer.create(<ComingSoon />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })
