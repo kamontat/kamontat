@@ -1,7 +1,9 @@
+import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 import tw, { styled } from "twin.macro"
 
 import DefaultLayout from "../layout/Default"
+import { DebugQueryQuery } from "../../types/gatsby-graphql"
 
 const Container = styled.div(({ theme }) => [
   tw`shadow overflow-hidden sm:rounded-lg`,
@@ -26,7 +28,67 @@ const RowDescription = styled.dd(({ theme }) => [
 type KeyValue = { key: string; value: string }
 
 const DebugPage = (): JSX.Element => {
+  const { site, siteBuildMetadata } = useStaticQuery<DebugQueryQuery>(graphql`
+    query DebugQuery {
+      site {
+        host
+        port
+        pathPrefix
+        buildTime
+        siteMetadata {
+          env
+          package {
+            name
+            description
+            version
+          }
+        }
+      }
+      siteBuildMetadata {
+        id
+        buildTime
+      }
+    }
+  `)
+
   const data: KeyValue[] = []
+
+  if (siteBuildMetadata) {
+    if (siteBuildMetadata.buildTime) {
+      data.push({ key: siteBuildMetadata.id, value: siteBuildMetadata.buildTime })
+    }
+  }
+
+  if (site) {
+    if (site.siteMetadata) {
+      if (site.siteMetadata.env) {
+        data.push({ key: "Environment", value: site.siteMetadata.env })
+      }
+
+      if (site.siteMetadata.package) {
+        if (site.siteMetadata.package.name) {
+          data.push({ key: "Website name", value: site.siteMetadata.package.name })
+        }
+
+        if (site.siteMetadata.package.version) {
+          data.push({ key: "Website version", value: site.siteMetadata.package.version })
+        }
+      }
+    }
+
+    if (site.buildTime) {
+      data.push({ key: "Build time", value: site.buildTime })
+    }
+
+    if (site.host && site.port) {
+      data.push({ key: "Full link", value: `${site.host}:${site.port}` })
+    }
+
+    if (site.pathPrefix) {
+      data.push({ key: "Path prefix", value: site.pathPrefix })
+    }
+  }
+
   data.push({ key: "Applicant Information", value: "Personal details and application." })
 
   data.push({ key: "Full name", value: "Margot Foster" })

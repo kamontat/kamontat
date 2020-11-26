@@ -9493,6 +9493,17 @@ export type DefaultLayoutQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<(
       & { default?: Maybe<Pick<SiteSiteMetadataDefault, 'language'>> }
     )> }> };
 
+export type DebugQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type DebugQueryQuery = { site?: Maybe<(
+    Pick<Site, 'host' | 'port' | 'pathPrefix' | 'buildTime'>
+    & { siteMetadata?: Maybe<(
+      Pick<SiteSiteMetadata, 'env'>
+      & { package?: Maybe<Pick<SiteSiteMetadataPackage, 'name' | 'version'>> }
+    )> }
+  )>, siteBuildMetadata?: Maybe<Pick<SiteBuildMetadata, 'id' | 'buildTime'>> };
+
 export type GatsbyContentfulFixedFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
 export type GatsbyContentfulFixed_TracedSvgFragment = Pick<ContentfulFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
