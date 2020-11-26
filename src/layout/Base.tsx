@@ -17,13 +17,16 @@ interface GlobalStylesOptions extends BaseOptions {
 
 const StyleImporter = ({ theme }: GlobalStylesOptions): JSX.Element => (
   <Global
-    tw="flex m-0 p-0 transition-all duration-200 ease-in-out"
     styles={css`
       @import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap");
 
       body {
         background: ${theme.background};
         color: ${theme.text};
+        display: flex;
+        margin: 0;
+        padding: 0;
+        transition: all 0.25s linear;
       }
     `}
   ></Global>
