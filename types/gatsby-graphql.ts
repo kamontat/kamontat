@@ -8570,9 +8570,20 @@ export type SiteFieldsEnum =
   | 'siteMetadata___author___name'
   | 'siteMetadata___author___email'
   | 'siteMetadata___author___url'
-  | 'siteMetadata___env'
   | 'siteMetadata___package___name'
   | 'siteMetadata___package___version'
+  | 'siteMetadata___env'
+  | 'siteMetadata___nodeVersion'
+  | 'siteMetadata___npmVersion'
+  | 'siteMetadata___yarnVersion'
+  | 'siteMetadata___netlify___id'
+  | 'siteMetadata___netlify___context'
+  | 'siteMetadata___netlify___deployID'
+  | 'siteMetadata___git___repo'
+  | 'siteMetadata___git___branch'
+  | 'siteMetadata___git___commit'
+  | 'siteMetadata___git___previousCommit'
+  | 'siteMetadata___git___prID'
   | 'port'
   | 'host'
   | 'polyfill'
@@ -9409,8 +9420,13 @@ export type SiteSiteMetadata = {
   siteUrl?: Maybe<Scalars['String']>;
   default?: Maybe<SiteSiteMetadataDefault>;
   author?: Maybe<SiteSiteMetadataAuthor>;
-  env?: Maybe<Scalars['String']>;
   package?: Maybe<SiteSiteMetadataPackage>;
+  env?: Maybe<Scalars['String']>;
+  nodeVersion?: Maybe<Scalars['String']>;
+  npmVersion?: Maybe<Scalars['String']>;
+  yarnVersion?: Maybe<Scalars['String']>;
+  netlify?: Maybe<SiteSiteMetadataNetlify>;
+  git?: Maybe<SiteSiteMetadataGit>;
 };
 
 export type SiteSiteMetadataAuthor = {
@@ -9440,8 +9456,41 @@ export type SiteSiteMetadataFilterInput = {
   siteUrl?: Maybe<StringQueryOperatorInput>;
   default?: Maybe<SiteSiteMetadataDefaultFilterInput>;
   author?: Maybe<SiteSiteMetadataAuthorFilterInput>;
-  env?: Maybe<StringQueryOperatorInput>;
   package?: Maybe<SiteSiteMetadataPackageFilterInput>;
+  env?: Maybe<StringQueryOperatorInput>;
+  nodeVersion?: Maybe<StringQueryOperatorInput>;
+  npmVersion?: Maybe<StringQueryOperatorInput>;
+  yarnVersion?: Maybe<StringQueryOperatorInput>;
+  netlify?: Maybe<SiteSiteMetadataNetlifyFilterInput>;
+  git?: Maybe<SiteSiteMetadataGitFilterInput>;
+};
+
+export type SiteSiteMetadataGit = {
+  repo?: Maybe<Scalars['String']>;
+  branch?: Maybe<Scalars['String']>;
+  commit?: Maybe<Scalars['String']>;
+  previousCommit?: Maybe<Scalars['String']>;
+  prID?: Maybe<Scalars['String']>;
+};
+
+export type SiteSiteMetadataGitFilterInput = {
+  repo?: Maybe<StringQueryOperatorInput>;
+  branch?: Maybe<StringQueryOperatorInput>;
+  commit?: Maybe<StringQueryOperatorInput>;
+  previousCommit?: Maybe<StringQueryOperatorInput>;
+  prID?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SiteSiteMetadataNetlify = {
+  id?: Maybe<Scalars['String']>;
+  context?: Maybe<Scalars['String']>;
+  deployID?: Maybe<Scalars['String']>;
+};
+
+export type SiteSiteMetadataNetlifyFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  context?: Maybe<StringQueryOperatorInput>;
+  deployID?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SiteSiteMetadataPackage = {
@@ -9497,12 +9546,12 @@ export type DebugQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type DebugQueryQuery = { site?: Maybe<(
-    Pick<Site, 'host' | 'port' | 'pathPrefix' | 'buildTime'>
+    Pick<Site, 'buildTime'>
     & { siteMetadata?: Maybe<(
-      Pick<SiteSiteMetadata, 'env'>
-      & { package?: Maybe<Pick<SiteSiteMetadataPackage, 'name' | 'version'>> }
+      Pick<SiteSiteMetadata, 'env' | 'nodeVersion' | 'npmVersion' | 'yarnVersion'>
+      & { package?: Maybe<Pick<SiteSiteMetadataPackage, 'name' | 'version'>>, netlify?: Maybe<Pick<SiteSiteMetadataNetlify, 'id' | 'deployID' | 'context'>>, git?: Maybe<Pick<SiteSiteMetadataGit, 'repo' | 'branch' | 'commit' | 'previousCommit' | 'prID'>> }
     )> }
-  )>, siteBuildMetadata?: Maybe<Pick<SiteBuildMetadata, 'id' | 'buildTime'>> };
+  )> };
 
 export type GatsbyContentfulFixedFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
