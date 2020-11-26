@@ -12,8 +12,10 @@ commit:
     - type: chore
       value: Other changes that don't modify src or test files.
   scopes:
+    - type: page
+      value: New page is introduce to modified
     - type: ui
-      value: User interface
+      value: Page design included both UI and UX
     - type: comp
       value: React component
     - type: model
