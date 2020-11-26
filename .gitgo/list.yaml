@@ -24,3 +24,5 @@ commit:
       value: Application configuration
     - type: test
       value: Unit test or Integration test
+    - type: data
+      value: Data, Typo or any string changes
