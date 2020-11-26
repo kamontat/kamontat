@@ -14,7 +14,7 @@ module.exports = ts.generateConfig({
         {
           cssPropOptimization: true,
           sourceMap: isDev,
-          autoLabel: "dev-only",
+          autoLabel: "always",
           labelFormat: "[filename]-[local]",
         },
       ],
