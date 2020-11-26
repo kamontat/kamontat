@@ -1,13 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import Layout from "../components/layout"
+import DefaultLayout from "../layout/Default"
 import Image from "../components/image"
-import SEO from "../components/seo"
 
 const IndexPage = (): JSX.Element => (
-  <Layout>
-    <SEO title="Home" lang="en" />
+  <DefaultLayout pageName="Home">
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
@@ -17,7 +15,7 @@ const IndexPage = (): JSX.Element => (
     <Link to="/page-2/">Go to page 2</Link>
     <br />
     <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
+  </DefaultLayout>
 )
 
 export default IndexPage
