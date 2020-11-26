@@ -1,5 +1,8 @@
 {
   "title": "KC",
   "shortName": "Net",
-  "siteUrl": "https://kamontat.net"
+  "siteUrl": "https://kamontat.net",
+  "default": {
+    "language": "en"
+  }
 }

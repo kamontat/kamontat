@@ -26,15 +26,19 @@ const Main = tw.main`
 export interface DefaultLayoutOptions extends BaseOptions {
   pageName: string
   description?: string
+  lang?: string
 }
 
-export default ({ children, pageName, description }: DefaultLayoutOptions): JSX.Element => {
+export default ({ children, pageName, description, lang }: DefaultLayoutOptions): JSX.Element => {
   const { site } = useStaticQuery<DefaultLayoutQueryQuery>(graphql`
     query DefaultLayoutQuery {
       site {
         siteMetadata {
           title
           description
+          default {
+            language
+          }
         }
       }
     }
@@ -46,7 +50,12 @@ export default ({ children, pageName, description }: DefaultLayoutOptions): JSX.
   return (
     <Base>
       <GlobalStyles />
-      <SEO pageName={pageName} title={title} description={updatedDescription}></SEO>
+      <SEO
+        pageName={pageName}
+        title={title}
+        description={updatedDescription}
+        lang={lang ?? site?.siteMetadata.default?.language ?? "en"}
+      ></SEO>
       <RootContainer>
         <Header title={title} />
         <Main>{children}</Main>
