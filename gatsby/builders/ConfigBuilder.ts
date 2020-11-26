@@ -2,13 +2,13 @@ import { GatsbyConfig } from "gatsby"
 import { Builder } from "./Builder"
 
 export class ConfigBuilder {
-  static new(): ConfigBuilder {
-    return new ConfigBuilder()
+  static new(debugMode = false): ConfigBuilder {
+    return new ConfigBuilder(debugMode)
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private builder: Record<string, Builder<any>>
-  private constructor() {
+  private constructor(private debugMode: boolean) {
     this.builder = {}
   }
 
@@ -24,7 +24,12 @@ export class ConfigBuilder {
     const obj: GatsbyConfig = {}
     const keys = Object.keys(this.builder) as Array<keyof GatsbyConfig>
     return keys.reduce((p, key) => {
-      return Object.assign(p, { [key]: this.builder[key].build() })
+      const obj = { [key]: this.builder[key].build() }
+      if (this.debugMode) {
+        console.debug(obj)
+      }
+
+      return Object.assign(p, obj)
     }, obj)
   }
 }
