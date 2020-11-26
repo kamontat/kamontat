@@ -94,6 +94,7 @@ export default ({ projectRoot }: TSConfigSetupOptions): GatsbyConfig => {
     documentPaths: [
       helper.joinPath("src", "**", "*.{ts,tsx}"),
       helper.joinPath("node_modules", "gatsby-*", "**", "*.js"),
+      helper.joinPath("gatsby", "**", "*.{ts,tsx}"),
       // helper.joinPath(".cache", "fragments", "*.js"),
     ],
   })
