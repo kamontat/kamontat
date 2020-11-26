@@ -7,50 +7,33 @@
 
 import React from "react"
 import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+import { BaseOptions } from "../layout/Base"
 
-export interface SEOOption {
-  description?: string
+export type Meta = JSX.IntrinsicElements["meta"]
+
+export interface SEOOptions extends BaseOptions {
+  description: string
   lang?: string
-  meta?: Array<JSX.IntrinsicElements["meta"]>
-  title: string
+  meta?: Meta[]
+  /**
+   * page name
+   */
+  pageName: string
+  /**
+   * website title from graphql
+   */
+  title?: string
 }
 
-export interface SEOQuery {
-  site: {
-    siteMetadata: {
-      title: string
-      description: string
-      author: {
-        name: string
-      }
-    }
-  }
-}
-
-function SEO({ description, lang, meta, title }: SEOOption): JSX.Element {
-  const { site } = useStaticQuery<SEOQuery>(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author {
-              name
-            }
-          }
-        }
-      }
-    `
-  )
-
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
-  const defaultMeta: Array<JSX.IntrinsicElements["meta"]> = [
+function SEO({ title, pageName, description, lang, meta }: SEOOptions): JSX.Element {
+  const defaultMeta: Meta[] = [
+    {
+      name: "title",
+      content: title,
+    },
     {
       name: `description`,
-      content: metaDescription,
+      content: description,
     },
     {
       property: `og:title`,
@@ -58,7 +41,7 @@ function SEO({ description, lang, meta, title }: SEOOption): JSX.Element {
     },
     {
       property: `og:description`,
-      content: metaDescription,
+      content: description,
     },
     {
       property: `og:type`,
@@ -69,16 +52,12 @@ function SEO({ description, lang, meta, title }: SEOOption): JSX.Element {
       content: `summary`,
     },
     {
-      name: `twitter:creator`,
-      content: site.siteMetadata?.author || ``,
-    },
-    {
       name: `twitter:title`,
       content: title,
     },
     {
       name: `twitter:description`,
-      content: metaDescription,
+      content: description,
     },
   ]
 
@@ -87,8 +66,8 @@ function SEO({ description, lang, meta, title }: SEOOption): JSX.Element {
       htmlAttributes={{
         lang,
       }}
-      title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : `%s`}
+      title={pageName}
+      titleTemplate={title ? `%s | ${title}` : `%s`}
       meta={defaultMeta.concat(meta ?? [])}
     />
   )

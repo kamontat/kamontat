@@ -14,11 +14,13 @@ commit:
   scopes:
     - type: ui
       value: User interface
+    - type: comp
+      value: React component
     - type: model
-      value: Models
+      value: Object models
     - type: script
-      value: Helper scripts
+      value: Utilities, Scripts, or Helpers
     - type: config
-      value: Configuration
+      value: Application configuration
     - type: test
       value: Unit test or Integration test
