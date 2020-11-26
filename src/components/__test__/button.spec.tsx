@@ -3,7 +3,7 @@ import tw from "twin.macro"
 import renderer from "react-test-renderer"
 
 const Button = tw.div`
-  flex flex-nowrap
+  flex
 `
 
 test("Button renders correctly", () => {

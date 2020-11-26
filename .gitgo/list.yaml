@@ -20,3 +20,5 @@ commit:
       value: Helper scripts
     - type: config
       value: Configuration
+    - type: test
+      value: Unit test or Integration test
