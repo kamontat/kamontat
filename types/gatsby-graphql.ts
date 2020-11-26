@@ -8566,6 +8566,7 @@ export type SiteFieldsEnum =
   | 'siteMetadata___description'
   | 'siteMetadata___shortName'
   | 'siteMetadata___siteUrl'
+  | 'siteMetadata___default___language'
   | 'siteMetadata___author___name'
   | 'siteMetadata___author___email'
   | 'siteMetadata___author___url'
@@ -9406,6 +9407,7 @@ export type SiteSiteMetadata = {
   description?: Maybe<Scalars['String']>;
   shortName?: Maybe<Scalars['String']>;
   siteUrl?: Maybe<Scalars['String']>;
+  default?: Maybe<SiteSiteMetadataDefault>;
   author?: Maybe<SiteSiteMetadataAuthor>;
   env?: Maybe<Scalars['String']>;
   package?: Maybe<SiteSiteMetadataPackage>;
@@ -9423,11 +9425,20 @@ export type SiteSiteMetadataAuthorFilterInput = {
   url?: Maybe<StringQueryOperatorInput>;
 };
 
+export type SiteSiteMetadataDefault = {
+  language?: Maybe<Scalars['String']>;
+};
+
+export type SiteSiteMetadataDefaultFilterInput = {
+  language?: Maybe<StringQueryOperatorInput>;
+};
+
 export type SiteSiteMetadataFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
   shortName?: Maybe<StringQueryOperatorInput>;
   siteUrl?: Maybe<StringQueryOperatorInput>;
+  default?: Maybe<SiteSiteMetadataDefaultFilterInput>;
   author?: Maybe<SiteSiteMetadataAuthorFilterInput>;
   env?: Maybe<StringQueryOperatorInput>;
   package?: Maybe<SiteSiteMetadataPackageFilterInput>;
@@ -9477,7 +9488,10 @@ export type WebPOptions = {
 export type DefaultLayoutQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type DefaultLayoutQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description'>> }> };
+export type DefaultLayoutQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<(
+      Pick<SiteSiteMetadata, 'title' | 'description'>
+      & { default?: Maybe<Pick<SiteSiteMetadataDefault, 'language'>> }
+    )> }> };
 
 export type GatsbyContentfulFixedFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
