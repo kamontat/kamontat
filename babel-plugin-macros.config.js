@@ -12,9 +12,9 @@ module.exports = {
       import: "Global",
       from: "@emotion/react",
     },
-    config: "tailwind.config.js",
+    config: "src/styles/tailwind.config.js",
     debugProp: true,
-    debugPlugins: false,
-    debug: false,
+    debugPlugins: true,
+    debug: true,
   },
 }
