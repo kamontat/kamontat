@@ -49,4 +49,8 @@ export class ConfigHelper extends SupportLogger {
     if (str === "") return undefined
     else return str
   }
+
+  getStringEnv(key: string): string {
+    return env.read(key, "")
+  }
 }

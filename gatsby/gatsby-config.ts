@@ -26,10 +26,25 @@ export default ({ projectRoot }: TSConfigSetupOptions): GatsbyConfig => {
   const metaBuilder = new MetadataBuilder<MetadataMapping>(metaJson)
     .new("description", helper.getPackageJson("description"))
     .new("author", helper.getPackageJson("author"))
-    .new("env", helper.getEnv(constants.NODE_ENV))
     .new("package", {
       name: helper.getPackageJson("name"),
       version: helper.getPackageJson("version"),
+    })
+    .new("env", helper.getEnv(constants.NODE_ENV))
+    .new("nodeVersion", helper.getStringEnv(constants.NODE_VERSION))
+    .new("npmVersion", helper.getStringEnv(constants.NPM_VERSION))
+    .new("yarnVersion", helper.getStringEnv(constants.YARN_VERSION))
+    .new("netlify", {
+      id: helper.getStringEnv(constants.NETLIFY_BUILD_ID),
+      context: helper.getStringEnv(constants.NETLIFY_CONTEXT),
+      deployID: helper.getStringEnv(constants.NETLIFY_DEPLOY_ID),
+    })
+    .new("git", {
+      repo: helper.getStringEnv(constants.GIT_REPO_URL),
+      branch: helper.getStringEnv(constants.GIT_BRANCH),
+      commit: helper.getStringEnv(constants.GIT_COMMIT_HASH),
+      previousCommit: helper.getStringEnv(constants.GIT_PREVIOUS_COMMIT_HASH),
+      prID: helper.getStringEnv(constants.GIT_PR_ID),
     })
 
   const pluginBuilder = new PluginBuilder<PluginMapping>()
