@@ -28,36 +28,43 @@ const RowDescription = styled.dd(({ theme }) => [
 type KeyValue = { key: string; value: string }
 
 const DebugPage = (): JSX.Element => {
-  const { site, siteBuildMetadata } = useStaticQuery<DebugQueryQuery>(graphql`
+  const { site } = useStaticQuery<DebugQueryQuery>(graphql`
     query DebugQuery {
       site {
-        host
-        port
-        pathPrefix
         buildTime
         siteMetadata {
           env
+          nodeVersion
+          npmVersion
+          yarnVersion
           package {
             name
-            description
             version
           }
+          netlify {
+            id
+            deployID
+            context
+          }
+          git {
+            repo
+            branch
+            commit
+            previousCommit
+            prID
+          }
         }
-      }
-      siteBuildMetadata {
-        id
-        buildTime
       }
     }
   `)
 
   const data: KeyValue[] = []
 
-  if (siteBuildMetadata) {
-    if (siteBuildMetadata.buildTime) {
-      data.push({ key: siteBuildMetadata.id, value: siteBuildMetadata.buildTime })
-    }
-  }
+  // if (siteBuildMetadata) {
+  //   if (siteBuildMetadata.buildTime) {
+  //     data.push({ key: siteBuildMetadata.id, value: siteBuildMetadata.buildTime })
+  //   }
+  // }
 
   if (site) {
     if (site.siteMetadata) {
@@ -74,33 +81,60 @@ const DebugPage = (): JSX.Element => {
           data.push({ key: "Website version", value: site.siteMetadata.package.version })
         }
       }
+
+      if (site.siteMetadata.nodeVersion) {
+        data.push({ key: "Node version", value: site.siteMetadata.nodeVersion })
+      }
+
+      if (site.siteMetadata.npmVersion) {
+        data.push({ key: "NPM version", value: site.siteMetadata.npmVersion })
+      }
+
+      if (site.siteMetadata.yarnVersion) {
+        data.push({ key: "Yarn version", value: site.siteMetadata.yarnVersion })
+      }
+
+      if (site.siteMetadata.netlify) {
+        if (site.siteMetadata.netlify.id) {
+          data.push({ key: "Build ID", value: site.siteMetadata.netlify.id })
+        }
+
+        if (site.siteMetadata.netlify.deployID) {
+          data.push({ key: "Deploy ID", value: site.siteMetadata.netlify.deployID })
+        }
+
+        if (site.siteMetadata.netlify.context) {
+          data.push({ key: "Context", value: site.siteMetadata.netlify.context })
+        }
+      }
+
+      if (site.siteMetadata.git) {
+        if (site.siteMetadata.git.repo) {
+          data.push({ key: "Git repository", value: site.siteMetadata.git.repo })
+        }
+
+        if (site.siteMetadata.git.branch) {
+          data.push({ key: "Git branch", value: site.siteMetadata.git.branch })
+        }
+
+        if (site.siteMetadata.git.commit) {
+          data.push({ key: "Git commit", value: site.siteMetadata.git.commit })
+        }
+
+        if (site.siteMetadata.git.previousCommit) {
+          data.push({ key: "Git previous commit", value: site.siteMetadata.git.previousCommit })
+        }
+
+        if (site.siteMetadata.git.prID) {
+          data.push({ key: "Git PR ID", value: site.siteMetadata.git.prID })
+        }
+      }
     }
 
     if (site.buildTime) {
       data.push({ key: "Build time", value: site.buildTime })
     }
-
-    if (site.host && site.port) {
-      data.push({ key: "Full link", value: `${site.host}:${site.port}` })
-    }
-
-    if (site.pathPrefix) {
-      data.push({ key: "Path prefix", value: site.pathPrefix })
-    }
   }
-
-  data.push({ key: "Applicant Information", value: "Personal details and application." })
-
-  data.push({ key: "Full name", value: "Margot Foster" })
-  data.push({ key: "Application for", value: "Backend Developer" })
-  data.push({ key: "Email address", value: "margotfoster@example.com" })
-  data.push({ key: "Salary expectation", value: "$120,000" })
-  data.push({
-    key: "About",
-    value: `Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur
-qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure
-nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.`,
-  })
 
   return (
     <div>
