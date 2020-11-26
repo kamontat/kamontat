@@ -8724,11 +8724,13 @@ export type SitePageConnectionGroupArgs = {
 };
 
 export type SitePageContext = {
+  link?: Maybe<Scalars['String']>;
   slug?: Maybe<Scalars['String']>;
   langKey?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextFilterInput = {
+  link?: Maybe<StringQueryOperatorInput>;
   slug?: Maybe<StringQueryOperatorInput>;
   langKey?: Maybe<StringQueryOperatorInput>;
 };
@@ -8832,6 +8834,7 @@ export type SitePageFieldsEnum =
   | 'internal___owner'
   | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
+  | 'context___link'
   | 'context___slug'
   | 'context___langKey'
   | 'pluginCreator___id'
@@ -8915,6 +8918,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___defaultDataLayer___type'
   | 'pluginCreator___pluginOptions___routeChangeEventName'
   | 'pluginCreator___pluginOptions___langKeyDefault'
+  | 'pluginCreator___pluginOptions___langKeyForNull'
   | 'pluginCreator___pluginOptions___projectRoot'
   | 'pluginCreator___pluginOptions___configDir'
   | 'pluginCreator___pluginOptions___pathCheck'
@@ -9148,6 +9152,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___defaultDataLayer___value___platform'
   | 'pluginOptions___routeChangeEventName'
   | 'pluginOptions___langKeyDefault'
+  | 'pluginOptions___langKeyForNull'
   | 'pluginOptions___projectRoot'
   | 'pluginOptions___configDir'
   | 'pluginOptions___pathCheck'
@@ -9306,6 +9311,7 @@ export type SitePluginPluginOptions = {
   defaultDataLayer?: Maybe<SitePluginPluginOptionsDefaultDataLayer>;
   routeChangeEventName?: Maybe<Scalars['String']>;
   langKeyDefault?: Maybe<Scalars['String']>;
+  langKeyForNull?: Maybe<Scalars['String']>;
   projectRoot?: Maybe<Scalars['String']>;
   configDir?: Maybe<Scalars['String']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
@@ -9373,6 +9379,7 @@ export type SitePluginPluginOptionsFilterInput = {
   defaultDataLayer?: Maybe<SitePluginPluginOptionsDefaultDataLayerFilterInput>;
   routeChangeEventName?: Maybe<StringQueryOperatorInput>;
   langKeyDefault?: Maybe<StringQueryOperatorInput>;
+  langKeyForNull?: Maybe<StringQueryOperatorInput>;
   projectRoot?: Maybe<StringQueryOperatorInput>;
   configDir?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
@@ -9466,11 +9473,6 @@ export type TransformOptions = {
 export type WebPOptions = {
   quality?: Maybe<Scalars['Int']>;
 };
-
-export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type Unnamed_1_Query = { placeholderImage?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
 export type DefaultLayoutQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -9566,3 +9568,8 @@ export type GatsbyImageSharpSizes_WithWebp_TracedSvgFragment = Pick<ImageSharpSi
 export type GatsbyImageSharpSizes_NoBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 export type GatsbyImageSharpSizes_WithWebp_NoBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+export type DataQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type DataQueryQuery = { social: { accounts: Array<Pick<ContentfulSocial, 'name' | 'url'>> } };
