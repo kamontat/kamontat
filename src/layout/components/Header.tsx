@@ -12,6 +12,7 @@ const NavTitleContainer = tw.div`
   flex items-center flex-shrink-0 mr-6
 `
 
+// TODO: Support link to home page
 const NavTitle = tw.span`
   font-semibold text-xl tracking-tight
 `
