@@ -84,10 +84,8 @@ export default ({ projectRoot }: TSConfigSetupOptions): GatsbyConfig => {
     name: metaBuilder.get("title"),
     short_name: metaBuilder.get("shortName"),
     start_url: `/`,
-    background_color: metaBuilder.get("color").light,
-    theme_color: metaBuilder.get("color").light,
     display: `minimal-ui`,
-    icon: helper.joinRootPath("src", "images", "gatsby-icon.png"),
+    icon: helper.joinRootPath("src", "images", "icon.png"),
   })
 
   // https://www.gatsbyjs.org/packages/gatsby-plugin-graphql-codegen
@@ -96,7 +94,7 @@ export default ({ projectRoot }: TSConfigSetupOptions): GatsbyConfig => {
     documentPaths: [
       helper.joinPath("src", "**", "*.{ts,tsx}"),
       helper.joinPath("node_modules", "gatsby-*", "**", "*.js"),
-      helper.joinPath(".cache", "fragments", "*.js"),
+      // helper.joinPath(".cache", "fragments", "*.js"),
     ],
   })
 
