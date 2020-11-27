@@ -2,6 +2,7 @@ import React from "react"
 import tw from "twin.macro"
 
 import { BaseOptions } from "../Base"
+import { IntlDropdown } from "./IntlDropdown"
 import { ThemeDropdown } from "./ThemeDropdown"
 
 const Navbar = tw.nav`
@@ -26,6 +27,7 @@ const NavBodyLeftContainer = tw.div`
 `
 
 const NavBodyRightContainer = tw.div`
+  flex
 `
 
 interface HeaderOptions extends BaseOptions {
@@ -41,6 +43,7 @@ export const Header = ({ title }: HeaderOptions): JSX.Element => {
       <NavBodyContainer>
         <NavBodyLeftContainer></NavBodyLeftContainer>
         <NavBodyRightContainer>
+          <IntlDropdown />
           <ThemeDropdown />
         </NavBodyRightContainer>
       </NavBodyContainer>
