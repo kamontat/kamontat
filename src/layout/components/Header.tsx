@@ -1,5 +1,6 @@
 import React from "react"
 import tw from "twin.macro"
+import { Link } from "gatsby-plugin-intl"
 
 import { BaseOptions } from "../Base"
 import { IntlDropdown } from "./IntlDropdown"
@@ -13,8 +14,7 @@ const NavTitleContainer = tw.div`
   flex items-center flex-shrink-0 mr-6
 `
 
-// TODO: Support link to home page
-const NavTitle = tw.span`
+const NavTitle = tw(Link)`
   font-semibold text-xl tracking-tight
 `
 
@@ -38,7 +38,7 @@ export const Header = ({ title }: HeaderOptions): JSX.Element => {
   return (
     <Navbar>
       <NavTitleContainer>
-        <NavTitle>{title || "Unknown"}</NavTitle>
+        <NavTitle to={"/"}>{title || "Unknown"}</NavTitle>
       </NavTitleContainer>
       <NavBodyContainer>
         <NavBodyLeftContainer></NavBodyLeftContainer>
