@@ -13,8 +13,8 @@ module.exports = {
       from: "@emotion/react",
     },
     config: "src/styles/tailwind.config.js",
-    debugProp: true,
-    debugPlugins: true,
-    debug: true,
+    debugProp: false,
+    debugPlugins: false,
+    debug: false,
   },
 }
