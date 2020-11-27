@@ -9,6 +9,7 @@ import { SentryOptions } from "./sentry"
 import { SitemapOptions } from "./sitemap"
 import { ContentfulOptions } from "./contentful"
 import { I18NOptions } from "./i18n"
+import { IntlOptions } from "./intl"
 
 export type PluginMapping = {
   "gatsby-source-filesystem": FileSystemOptions
@@ -24,6 +25,7 @@ export type PluginMapping = {
   "gatsby-plugin-sentry": SentryOptions
   "gatsby-plugin-sitemap": SitemapOptions
   "gatsby-plugin-i18n": I18NOptions
+  "gatsby-plugin-intl": IntlOptions
 
   "gatsby-transformer-sharp": DefaultPluginOption
 }

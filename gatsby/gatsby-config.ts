@@ -123,7 +123,14 @@ export default ({ projectRoot }: TSConfigSetupOptions): GatsbyConfig => {
     routeChangeEventName: "gatsby-route-change",
   })
 
-  pluginBuilder.new("gatsby-plugin-i18n", {
+  pluginBuilder.new("gatsby-plugin-intl", {
+    path: helper.joinRootPath("data", "lang"),
+    languages: ["en", "th"],
+    defaultLanguage: "en",
+    redirect: true,
+  })
+
+  pluginBuilder.disabled().new("gatsby-plugin-i18n", {
     langKeyDefault: "en",
     langKeyForNull: "en",
   })
