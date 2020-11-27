@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 import tw, { styled } from "twin.macro"
+import { useIntl } from "gatsby-plugin-intl"
 
 import DefaultLayout from "../layout/Default"
 import { DebugQueryQuery } from "../../types/gatsby-graphql"
@@ -28,6 +29,7 @@ const RowDescription = styled.dd(({ theme }) => [
 type KeyValue = { key: string; value: string }
 
 const DebugPage = (): JSX.Element => {
+  const intl = useIntl()
   const { site } = useStaticQuery<DebugQueryQuery>(graphql`
     query DebugQuery {
       site {
@@ -140,8 +142,8 @@ const DebugPage = (): JSX.Element => {
     <div>
       <Container>
         <TitleContainer>
-          <Title>Debugging Information</Title>
-          <Description>Debugging information for contributor(s) only.</Description>
+          <Title>{intl.formatMessage({ id: "debugPage.title" })}</Title>
+          <Description>{intl.formatMessage({ id: "debugPage.desc" })}</Description>
         </TitleContainer>
         <TableContainer>
           <Table>
