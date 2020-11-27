@@ -26,7 +26,7 @@ const DropdownContainer = styled.div(({ hidden }) => [
 ])
 
 const DropdownElement = styled.a(({ hidden }) => [
-  tw`block px-4 py-2 hover:bg-indigo-500 hover:text-white`,
+  tw`block px-4 py-2 cursor-pointer hover:bg-indigo-500 hover:text-white`,
   hidden && `visibility: hidden`,
   hidden && `display: none`,
 ])
