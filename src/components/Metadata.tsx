@@ -7,13 +7,14 @@
 
 import React from "react"
 import { Helmet } from "react-helmet"
+import { useIntl } from "gatsby-plugin-intl"
+
 import { BaseOptions } from "../layout/Base"
 
 export type Meta = JSX.IntrinsicElements["meta"]
 
 export interface SEOOptions extends BaseOptions {
   description: string
-  lang?: string
   meta?: Meta[]
   /**
    * page name
@@ -25,7 +26,8 @@ export interface SEOOptions extends BaseOptions {
   title?: string
 }
 
-function SEO({ title, pageName, description, lang, meta }: SEOOptions): JSX.Element {
+function SEO({ title, pageName, description, meta }: SEOOptions): JSX.Element {
+  const intl = useIntl()
   const defaultMeta: Meta[] = [
     {
       name: "title",
@@ -64,7 +66,7 @@ function SEO({ title, pageName, description, lang, meta }: SEOOptions): JSX.Elem
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        lang: intl.locale,
       }}
       title={pageName}
       titleTemplate={title ? `%s | ${title}` : `%s`}
