@@ -10,15 +10,6 @@ module.exports = ts.generateConfig({
     plugins: [
       ["@babel/plugin-proposal-decorators", { legacy: true }],
       [
-        "@emotion",
-        {
-          cssPropOptimization: true,
-          sourceMap: isDev,
-          autoLabel: "always",
-          labelFormat: "[filename]-[local]",
-        },
-      ],
-      [
         "@emotion/babel-plugin-jsx-pragmatic",
         {
           export: "jsx",
