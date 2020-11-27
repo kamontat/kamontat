@@ -140,8 +140,8 @@ const DebugPage = (): JSX.Element => {
     <div>
       <Container>
         <TitleContainer>
-          <Title>Applicant Information</Title>
-          <Description>Personal details and application.</Description>
+          <Title>Debugging Information</Title>
+          <Description>Debugging information for contributor(s) only.</Description>
         </TitleContainer>
         <TableContainer>
           <Table>
