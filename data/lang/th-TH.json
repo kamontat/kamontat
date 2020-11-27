@@ -1,5 +1,9 @@
 {
+  "indexPage": {
+    "pageName": "หน้าหลัก"
+  },
   "debugPage": {
+    "pageName": "ทดสอบ",
     "title": "Debugging Information (ไทย)",
     "desc": "Debugging information for contributor(s) only. (ไทย)"
   }

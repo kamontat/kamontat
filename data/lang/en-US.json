@@ -1,5 +1,9 @@
 {
+  "indexPage": {
+    "pageName": "Home"
+  },
   "debugPage": {
+    "pageName": "Debug",
     "title": "Debugging Information",
     "desc": "Debugging information for contributor(s) only."
   }

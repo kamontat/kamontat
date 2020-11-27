@@ -125,14 +125,14 @@ export default ({ projectRoot }: TSConfigSetupOptions): GatsbyConfig => {
 
   pluginBuilder.new("gatsby-plugin-intl", {
     path: helper.joinRootPath("data", "lang"),
-    languages: ["en", "th"],
-    defaultLanguage: "en",
+    languages: ["en-US", "th-TH"],
+    defaultLanguage: "en-US",
     redirect: true,
   })
 
   pluginBuilder.disabled().new("gatsby-plugin-i18n", {
-    langKeyDefault: "en",
-    langKeyForNull: "en",
+    langKeyDefault: "en-US",
+    langKeyForNull: "en-US",
   })
 
   // TODO: remove babel config in gatsby-config.js and remove @babel/plugin-proposal-decorators @emotion/babel-plugin-jsx-pragmatic after gatsby-plugin-emotion already support emotion 11
