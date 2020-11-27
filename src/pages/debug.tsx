@@ -5,6 +5,7 @@ import { useIntl } from "gatsby-plugin-intl"
 
 import DefaultLayout from "../layout/Default"
 import { DebugQueryQuery } from "../../types/gatsby-graphql"
+import { BaseOptions } from "../layout/Base"
 
 const Container = styled.div(({ theme }) => [
   tw`shadow overflow-hidden sm:rounded-lg`,
@@ -28,45 +29,14 @@ const RowDescription = styled.dd(({ theme }) => [
 
 type KeyValue = { key: string; value: string }
 
-const DebugPage = (): JSX.Element => {
-  const intl = useIntl()
-  const { site } = useStaticQuery<DebugQueryQuery>(graphql`
-    query DebugQuery {
-      site {
-        buildTime
-        siteMetadata {
-          env
-          nodeVersion
-          npmVersion
-          yarnVersion
-          package {
-            name
-            version
-          }
-          netlify {
-            id
-            deployID
-            context
-          }
-          git {
-            repo
-            branch
-            commit
-            previousCommit
-            prID
-          }
-        }
-      }
-    }
-  `)
+interface DebugOptions extends BaseOptions {
+  site: DebugQueryQuery["site"]
+  title: string
+  subtitle: string
+}
 
+const DebugPage = ({ site, title, subtitle }: DebugOptions): JSX.Element => {
   const data: KeyValue[] = []
-
-  // if (siteBuildMetadata) {
-  //   if (siteBuildMetadata.buildTime) {
-  //     data.push({ key: siteBuildMetadata.id, value: siteBuildMetadata.buildTime })
-  //   }
-  // }
 
   if (site) {
     if (site.siteMetadata) {
@@ -142,8 +112,8 @@ const DebugPage = (): JSX.Element => {
     <div>
       <Container>
         <TitleContainer>
-          <Title>{intl.formatMessage({ id: "debugPage.title" })}</Title>
-          <Description>{intl.formatMessage({ id: "debugPage.desc" })}</Description>
+          <Title>{title}</Title>
+          <Description>{subtitle}</Description>
         </TitleContainer>
         <TableContainer>
           <Table>
@@ -161,9 +131,44 @@ const DebugPage = (): JSX.Element => {
 }
 
 export default (): JSX.Element => {
+  const intl = useIntl()
+  const { site } = useStaticQuery<DebugQueryQuery>(graphql`
+    query DebugQuery {
+      site {
+        buildTime
+        siteMetadata {
+          env
+          nodeVersion
+          npmVersion
+          yarnVersion
+          package {
+            name
+            version
+          }
+          netlify {
+            id
+            deployID
+            context
+          }
+          git {
+            repo
+            branch
+            commit
+            previousCommit
+            prID
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <DefaultLayout pageName="Debug">
-      <DebugPage />
+      <DebugPage
+        site={site}
+        title={intl.formatMessage({ id: "debugPage.title" })}
+        subtitle={intl.formatMessage({ id: "debugPage.desc" })}
+      />
     </DefaultLayout>
   )
 }
