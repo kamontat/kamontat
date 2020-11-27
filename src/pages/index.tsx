@@ -1,17 +1,26 @@
 import React from "react"
-import { Link } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
+import { useIntl } from "gatsby-plugin-intl"
 
-import DefaultLayout from "../layout/Default"
+import CenterLayout from "../layout/Center"
+import { IndexPageQueryQuery } from "../../types/gatsby-graphql"
+import RichText from "../components/ContentfulRichText"
 
-const IndexPage = (): JSX.Element => (
-  <DefaultLayout pageName="Home">
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
-    <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </DefaultLayout>
-)
+const IndexPage = (): JSX.Element => {
+  const intl = useIntl()
+  const { summary } = useStaticQuery<IndexPageQueryQuery>(graphql`
+    query IndexPageQuery {
+      summary: contentfulInformationSummaryRichTextNode {
+        json
+      }
+    }
+  `)
+
+  return (
+    <CenterLayout pageName={intl.formatMessage({ id: "indexPage.pageName", defaultMessage: "Home" })}>
+      {summary?.json && <RichText json={summary.json} />}
+    </CenterLayout>
+  )
+}
 
 export default IndexPage
