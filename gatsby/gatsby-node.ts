@@ -4,26 +4,16 @@
  * See: https://www.gatsbyjs.com/docs/node-apis/
  */
 
-import { resolve } from "path"
 import { GatsbyNode } from "gatsby"
+import { env } from "@kcutils/helper"
 
 import { DataQueryQuery } from "../types/gatsby-graphql"
+import { PageBuilder } from "./builders/PageBuilder"
 
 type CreatePages = GatsbyNode["createPages"]
 
-const generatePath = (name: string, url?: string) => {
-  return {
-    matchPath: `/go/${name.toLowerCase()}`,
-    path: `/go/${name.toLowerCase()}`,
-    component: resolve("./src/templates/redirector.tsx"),
-    context: {
-      link: url,
-    },
-  }
-}
-
 export const createPages: CreatePages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const builder = new PageBuilder(actions)
   const { data } = await graphql<DataQueryQuery>(`
     query DataQuery {
       social: allContentfulSocial(filter: { node_locale: { eq: "en-US" } }) {
@@ -32,10 +22,46 @@ export const createPages: CreatePages = async ({ graphql, actions }) => {
           url
         }
       }
+
+      file: allContentfulDocument(filter: { node_locale: { eq: "en-US" } }) {
+        documents: nodes {
+          name
+          file {
+            data: file {
+              url
+            }
+          }
+        }
+      }
     }
   `)
 
-  if (data) {
-    data.social.accounts.forEach(({ url, name }) => createPage(generatePath(name, url)))
-  }
+  builder
+    .goPaths(data.social.accounts, (a) => ({ url: a.url, path: a.name }))
+    .goPaths(data.file.documents, (d) => ({
+      path: d.name,
+      url: d.file.data.url,
+    }))
+    .goPath(env.read("CONTENTFUL_SPACE_ID", ""), (id) => ({
+      path: "cms",
+      url: `https://app.contentful.com/spaces/${id}/home`,
+    }))
 }
+
+// interface Context {
+//   intl: {
+//     language: string
+//     languages: string[]
+//     messages: Record<string, string>
+//     routed: boolean
+//     originalPath: string
+//     redirect: boolean
+//     defaultLanguage: string
+//   }
+//   language: string
+// }
+// export const onCreatePage = ({ page }: CreatePageArgs<Context>): void => {
+//   // const { createPage, deletePage } = actions
+//   const { context } = page
+//   const intl = context.intl
+// }
