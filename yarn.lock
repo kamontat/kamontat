@@ -2456,6 +2456,11 @@
     chalk "4.1.0"
     figures "3.2.0"
 
+"@kcutils/random@0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@kcutils/random/-/random-0.2.2.tgz#6ece746e6a348e433ac2c71bca87c2e6b5e94234"
+  integrity sha512-ARegSNGW0jxJ8EZrzEpAg8mHn3vGTB9WeNSHv8/80IH1dJjFk3W5V6SX+3CdRMLTEjV3qwTXGycc9MIl9pJcyQ==
+
 "@mdx-js/util@^2.0.0-next.8":
   version "2.0.0-next.8"
   resolved "https://registry.yarnpkg.com/@mdx-js/util/-/util-2.0.0-next.8.tgz#66ecc27b78e07a3ea2eb1a8fc5a99dfa0ba96690"

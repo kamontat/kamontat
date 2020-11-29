@@ -8737,12 +8737,14 @@ export type SitePageConnectionGroupArgs = {
 
 export type SitePageContext = {
   link?: Maybe<Scalars['String']>;
+  second?: Maybe<Scalars['Int']>;
   language?: Maybe<Scalars['String']>;
   intl?: Maybe<SitePageContextIntl>;
 };
 
 export type SitePageContextFilterInput = {
   link?: Maybe<StringQueryOperatorInput>;
+  second?: Maybe<IntQueryOperatorInput>;
   language?: Maybe<StringQueryOperatorInput>;
   intl?: Maybe<SitePageContextIntlFilterInput>;
 };
@@ -8881,6 +8883,7 @@ export type SitePageFieldsEnum =
   | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
   | 'context___link'
+  | 'context___second'
   | 'context___language'
   | 'context___intl___language'
   | 'context___intl___languages'
@@ -8972,15 +8975,15 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___includeInDevelopment'
   | 'pluginCreator___pluginOptions___defaultDataLayer___type'
   | 'pluginCreator___pluginOptions___routeChangeEventName'
+  | 'pluginCreator___pluginOptions___languages'
+  | 'pluginCreator___pluginOptions___defaultLanguage'
+  | 'pluginCreator___pluginOptions___redirect'
   | 'pluginCreator___pluginOptions___projectRoot'
   | 'pluginCreator___pluginOptions___configDir'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___isTSX'
   | 'pluginCreator___pluginOptions___jsxPragma'
-  | 'pluginCreator___pluginOptions___languages'
-  | 'pluginCreator___pluginOptions___defaultLanguage'
-  | 'pluginCreator___pluginOptions___redirect'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
   | 'pluginCreator___ssrAPIs'
@@ -9207,15 +9210,15 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___defaultDataLayer___type'
   | 'pluginOptions___defaultDataLayer___value___platform'
   | 'pluginOptions___routeChangeEventName'
+  | 'pluginOptions___languages'
+  | 'pluginOptions___defaultLanguage'
+  | 'pluginOptions___redirect'
   | 'pluginOptions___projectRoot'
   | 'pluginOptions___configDir'
   | 'pluginOptions___pathCheck'
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___isTSX'
   | 'pluginOptions___jsxPragma'
-  | 'pluginOptions___languages'
-  | 'pluginOptions___defaultLanguage'
-  | 'pluginOptions___redirect'
   | 'nodeAPIs'
   | 'browserAPIs'
   | 'ssrAPIs'
@@ -9367,15 +9370,15 @@ export type SitePluginPluginOptions = {
   includeInDevelopment?: Maybe<Scalars['Boolean']>;
   defaultDataLayer?: Maybe<SitePluginPluginOptionsDefaultDataLayer>;
   routeChangeEventName?: Maybe<Scalars['String']>;
+  languages?: Maybe<Array<Maybe<Scalars['String']>>>;
+  defaultLanguage?: Maybe<Scalars['String']>;
+  redirect?: Maybe<Scalars['Boolean']>;
   projectRoot?: Maybe<Scalars['String']>;
   configDir?: Maybe<Scalars['String']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
   jsxPragma?: Maybe<Scalars['String']>;
-  languages?: Maybe<Array<Maybe<Scalars['String']>>>;
-  defaultLanguage?: Maybe<Scalars['String']>;
-  redirect?: Maybe<Scalars['Boolean']>;
 };
 
 export type SitePluginPluginOptionsDefaultDataLayer = {
@@ -9436,15 +9439,15 @@ export type SitePluginPluginOptionsFilterInput = {
   includeInDevelopment?: Maybe<BooleanQueryOperatorInput>;
   defaultDataLayer?: Maybe<SitePluginPluginOptionsDefaultDataLayerFilterInput>;
   routeChangeEventName?: Maybe<StringQueryOperatorInput>;
+  languages?: Maybe<StringQueryOperatorInput>;
+  defaultLanguage?: Maybe<StringQueryOperatorInput>;
+  redirect?: Maybe<BooleanQueryOperatorInput>;
   projectRoot?: Maybe<StringQueryOperatorInput>;
   configDir?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
   jsxPragma?: Maybe<StringQueryOperatorInput>;
-  languages?: Maybe<StringQueryOperatorInput>;
-  defaultLanguage?: Maybe<StringQueryOperatorInput>;
-  redirect?: Maybe<BooleanQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsHeaders = {
@@ -9600,10 +9603,15 @@ export type DebugQueryQuery = { site?: Maybe<(
     )> }
   )> };
 
-export type IndexPageQueryQueryVariables = Exact<{ [key: string]: never; }>;
+export type IndexPageQueryQueryVariables = Exact<{
+  language?: Maybe<Scalars['String']>;
+}>;
 
 
-export type IndexPageQueryQuery = { summary?: Maybe<Pick<ContentfulInformationSummaryRichTextNode, 'json'>> };
+export type IndexPageQueryQuery = { information?: Maybe<{ summary?: Maybe<Pick<ContentfulInformationSummaryRichTextNode, 'json'>>, images?: Maybe<Array<Maybe<(
+      Pick<ContentfulAsset, 'id' | 'title'>
+      & { fluid?: Maybe<GatsbyContentfulFluid_WithWebpFragment> }
+    )>>> }> };
 
 export type GatsbyContentfulFixedFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
@@ -9698,4 +9706,7 @@ export type GatsbyImageSharpSizes_WithWebp_NoBase64Fragment = Pick<ImageSharpSiz
 export type DataQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type DataQueryQuery = { social: { accounts: Array<Pick<ContentfulSocial, 'name' | 'url'>> } };
+export type DataQueryQuery = { social: { accounts: Array<Pick<ContentfulSocial, 'name' | 'url'>> }, file: { documents: Array<(
+      Pick<ContentfulDocument, 'name'>
+      & { file?: Maybe<{ data?: Maybe<Pick<ContentfulAssetFile, 'url'>> }> }
+    )> } };
