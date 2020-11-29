@@ -28,6 +28,7 @@
     "@emotion/styled": "11.0.0",
     "@kcutils/helper": "1.0.3",
     "@kcutils/logger": "0.9.9",
+    "@kcutils/random": "0.2.2",
     "gatsby": "2.27.3",
     "gatsby-image": "2.6.0",
     "gatsby-plugin-google-tagmanager": "2.6.0",
