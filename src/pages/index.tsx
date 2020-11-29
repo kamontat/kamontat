@@ -32,8 +32,8 @@ interface IndexPageOptions extends BaseOptions {
   data: IndexPageQueryQuery
 }
 
+const random = new Randoms.Xoshiro128PP(new Seeds.Timestamp())
 const IndexPage = ({ data }: IndexPageOptions): JSX.Element => {
-  const random = new Randoms.Xoshiro128PP(new Seeds.Fixed(+new Date()))
   const intl = useIntl()
 
   const avatar = data.information?.images && random.pick(data.information.images)
