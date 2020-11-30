@@ -56,7 +56,7 @@ export const IntlDropdown = (): JSX.Element => {
             <LanguageTitle>{getLanguageName(currentLocale)}</LanguageTitle>
             <DropdownContainer hidden={!onDropdown}>
               {languages.map((lang) => {
-                return <Dropdown current={currentLocale} lang={lang}></Dropdown>
+                return <Dropdown key={lang} current={currentLocale} lang={lang}></Dropdown>
               })}
             </DropdownContainer>
           </RootContainer>
