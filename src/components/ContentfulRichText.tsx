@@ -7,7 +7,7 @@ import { documentToReactComponents, Options } from "@contentful/rich-text-react-
 import { BaseOptions } from "../layout/Base"
 
 const Bold = tw.span`font-bold`
-const Text = styled.p(() => [tw`text-left text-base leading-relaxed`, "white-space: pre-line"])
+const Text = styled.p(() => [tw`text-base leading-relaxed`, "white-space: pre-line"])
 
 const options: Options = {
   renderMark: {
