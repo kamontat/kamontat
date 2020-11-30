@@ -7,7 +7,7 @@ interface DefinitionOptions extends BaseOptions {
   message?: string
 }
 
-const Message = styled.h3(() => [tw`pb-3 font-sans text-lg`])
+const Message = styled.h2(() => [tw`pb-3 font-sans text-lg`])
 
 export const Definition = ({ message }: DefinitionOptions): JSX.Element => {
   if (message) return <Message>{message}</Message>

@@ -12,7 +12,7 @@ const Container = styled.div(({ theme }) => [
   `background-color: ${theme.properties.secondaryBackground}`,
 ])
 const TitleContainer = tw.div`px-4 py-5 sm:px-6`
-const Title = tw.h3`text-lg font-medium`
+const Title = tw.h1`text-lg font-medium`
 const Description = styled.p(({ theme }) => [tw`mt-1 max-w-2xl text-sm`, `color: ${theme.properties.secondaryText}`])
 
 const TableContainer = styled.div(({ theme }) => [tw`border-t`, `border-color: ${theme.properties.background}`])
