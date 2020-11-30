@@ -36,6 +36,7 @@ interface LanguageDropdownOptions extends BaseOptions {
   current: string
 }
 
+// TODO: Fix dropdown border and shadow is invisible in dark/black mode
 const Dropdown = ({ current, lang }: LanguageDropdownOptions): JSX.Element => {
   return (
     <DropdownElement onClick={() => changeLocale(lang)} hidden={current === lang}>

@@ -31,6 +31,7 @@ interface ThemeDropdownOptions extends BaseOptions {
   context: ThemeContextObject
 }
 
+// TODO: Fix dropdown border and shadow is invisible in dark/black mode
 const Dropdown = ({ name, context }: ThemeDropdownOptions): JSX.Element => {
   return (
     <DropdownElement onClick={() => context.newTheme({ name })} hidden={context.name === name}>
