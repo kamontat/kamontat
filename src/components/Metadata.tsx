@@ -10,6 +10,7 @@ import { Helmet } from "react-helmet"
 import { useIntl } from "gatsby-plugin-intl"
 
 import { BaseOptions } from "../layout/Base"
+import { useTheme } from "@emotion/react"
 
 export type Meta = JSX.IntrinsicElements["meta"]
 
@@ -28,6 +29,7 @@ export interface SEOOptions extends BaseOptions {
 
 function SEO({ title, pageName, description, meta }: SEOOptions): JSX.Element {
   const intl = useIntl()
+  const theme = useTheme()
   const defaultMeta: Meta[] = [
     {
       name: "title",
@@ -67,6 +69,7 @@ function SEO({ title, pageName, description, meta }: SEOOptions): JSX.Element {
     <Helmet
       htmlAttributes={{
         lang: intl.locale,
+        theme: theme.name,
       }}
       title={pageName}
       titleTemplate={title ? `%s | ${title}` : `%s`}
