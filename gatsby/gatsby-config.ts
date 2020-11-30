@@ -112,6 +112,7 @@ export default ({ projectRoot }: TSConfigSetupOptions): GatsbyConfig => {
       helper.joinPath("gatsby", "**", "*.{ts,tsx}"),
       // helper.joinPath(".cache", "fragments", "*.js"),
     ],
+    codegenDelay: 1000,
   })
 
   // https://www.gatsbyjs.org/packages/gatsby-plugin-google-tagmanager
