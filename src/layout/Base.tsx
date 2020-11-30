@@ -18,6 +18,7 @@ interface GlobalStylesOptions extends BaseOptions {
 
 const StyleImporter = ({ theme }: GlobalStylesOptions): JSX.Element => (
   <Global
+    // TODO: Import correct font that we will use
     styles={css`
       @import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap");
 

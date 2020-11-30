@@ -5,10 +5,10 @@
 // TODO upgrade tailwindcss to version 2
 // const colors = require("tailwindcss/colors")
 
-// TODO modified configuration to related personal
 module.exports = {
   theme: {
     fontFamily: {
+      // TODO: replace font for sans and serif in website
       sans: ["Graphik", "sans-serif"],
       serif: ["Merriweather", "serif"],
     },
