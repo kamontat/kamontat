@@ -8,6 +8,7 @@ import styled from "@emotion/styled/macro"
 import { BaseOptions } from "../../../layout/Base"
 
 export interface SocialIconOptions extends BaseOptions {
+  type: string
   name: string
   url: string
   title?: string
@@ -71,10 +72,11 @@ const IconWrapper = styled(Link)`
   `}
 `
 
-export const SocialIcon = ({ Component, key, name, color }: SocialIconRootOptions): JSX.Element => {
+export const SocialIcon = ({ Component, type, name, color }: SocialIconRootOptions): JSX.Element => {
+  const goPath = `/go/${type ?? name}`
   return (
-    <IconContainer key={key}>
-      <IconWrapper to={`/go/${key ?? name}`} color={color}>
+    <IconContainer key={type}>
+      <IconWrapper to={goPath} color={color}>
         <Component title={name} />
       </IconWrapper>
       <Tooltip color={color}>{name}</Tooltip>
