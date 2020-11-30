@@ -7,6 +7,7 @@ import { useThemeContext } from "../features/theme/context"
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface BaseOptions<T = any> {
+  key?: string
   children?: React.ReactNode
   pageContext?: T
 }

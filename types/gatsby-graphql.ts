@@ -405,6 +405,7 @@ export type ContentfulAddressFieldsEnum =
   | 'information___socials___internal___mediaType'
   | 'information___socials___internal___owner'
   | 'information___socials___internal___type'
+  | 'information___socials___key'
   | 'information___socials___name'
   | 'information___socials___username'
   | 'information___socials___url'
@@ -446,10 +447,10 @@ export type ContentfulAddressFieldsEnum =
   | 'information___summary___internal___mediaType'
   | 'information___summary___internal___owner'
   | 'information___summary___internal___type'
-  | 'information___summary___nodeType'
   | 'information___summary___content'
-  | 'information___summary___content___nodeType'
   | 'information___summary___content___content'
+  | 'information___summary___content___nodeType'
+  | 'information___summary___nodeType'
   | 'information___summary___summary'
   | 'information___summary___sys___type'
   | 'information___summary___json'
@@ -474,10 +475,10 @@ export type ContentfulAddressFieldsEnum =
   | 'information___childContentfulInformationSummaryRichTextNode___internal___mediaType'
   | 'information___childContentfulInformationSummaryRichTextNode___internal___owner'
   | 'information___childContentfulInformationSummaryRichTextNode___internal___type'
-  | 'information___childContentfulInformationSummaryRichTextNode___nodeType'
   | 'information___childContentfulInformationSummaryRichTextNode___content'
-  | 'information___childContentfulInformationSummaryRichTextNode___content___nodeType'
   | 'information___childContentfulInformationSummaryRichTextNode___content___content'
+  | 'information___childContentfulInformationSummaryRichTextNode___content___nodeType'
+  | 'information___childContentfulInformationSummaryRichTextNode___nodeType'
   | 'information___childContentfulInformationSummaryRichTextNode___summary'
   | 'information___childContentfulInformationSummaryRichTextNode___sys___type'
   | 'information___childContentfulInformationSummaryRichTextNode___json'
@@ -2263,6 +2264,7 @@ export type ContentfulInformationFieldsEnum =
   | 'address___information___socials'
   | 'address___information___socials___id'
   | 'address___information___socials___children'
+  | 'address___information___socials___key'
   | 'address___information___socials___name'
   | 'address___information___socials___username'
   | 'address___information___socials___url'
@@ -2274,8 +2276,8 @@ export type ContentfulInformationFieldsEnum =
   | 'address___information___socials___node_locale'
   | 'address___information___summary___id'
   | 'address___information___summary___children'
-  | 'address___information___summary___nodeType'
   | 'address___information___summary___content'
+  | 'address___information___summary___nodeType'
   | 'address___information___summary___summary'
   | 'address___information___summary___json'
   | 'address___information___spaceId'
@@ -2287,8 +2289,8 @@ export type ContentfulInformationFieldsEnum =
   | 'address___information___node_locale'
   | 'address___information___childContentfulInformationSummaryRichTextNode___id'
   | 'address___information___childContentfulInformationSummaryRichTextNode___children'
-  | 'address___information___childContentfulInformationSummaryRichTextNode___nodeType'
   | 'address___information___childContentfulInformationSummaryRichTextNode___content'
+  | 'address___information___childContentfulInformationSummaryRichTextNode___nodeType'
   | 'address___information___childContentfulInformationSummaryRichTextNode___summary'
   | 'address___information___childContentfulInformationSummaryRichTextNode___json'
   | 'address___spaceId'
@@ -2337,6 +2339,7 @@ export type ContentfulInformationFieldsEnum =
   | 'socials___internal___mediaType'
   | 'socials___internal___owner'
   | 'socials___internal___type'
+  | 'socials___key'
   | 'socials___name'
   | 'socials___username'
   | 'socials___url'
@@ -2388,6 +2391,7 @@ export type ContentfulInformationFieldsEnum =
   | 'socials___information___socials'
   | 'socials___information___socials___id'
   | 'socials___information___socials___children'
+  | 'socials___information___socials___key'
   | 'socials___information___socials___name'
   | 'socials___information___socials___username'
   | 'socials___information___socials___url'
@@ -2399,8 +2403,8 @@ export type ContentfulInformationFieldsEnum =
   | 'socials___information___socials___node_locale'
   | 'socials___information___summary___id'
   | 'socials___information___summary___children'
-  | 'socials___information___summary___nodeType'
   | 'socials___information___summary___content'
+  | 'socials___information___summary___nodeType'
   | 'socials___information___summary___summary'
   | 'socials___information___summary___json'
   | 'socials___information___spaceId'
@@ -2412,8 +2416,8 @@ export type ContentfulInformationFieldsEnum =
   | 'socials___information___node_locale'
   | 'socials___information___childContentfulInformationSummaryRichTextNode___id'
   | 'socials___information___childContentfulInformationSummaryRichTextNode___children'
-  | 'socials___information___childContentfulInformationSummaryRichTextNode___nodeType'
   | 'socials___information___childContentfulInformationSummaryRichTextNode___content'
+  | 'socials___information___childContentfulInformationSummaryRichTextNode___nodeType'
   | 'socials___information___childContentfulInformationSummaryRichTextNode___summary'
   | 'socials___information___childContentfulInformationSummaryRichTextNode___json'
   | 'socials___spaceId'
@@ -2461,12 +2465,13 @@ export type ContentfulInformationFieldsEnum =
   | 'summary___internal___mediaType'
   | 'summary___internal___owner'
   | 'summary___internal___type'
-  | 'summary___nodeType'
   | 'summary___content'
-  | 'summary___content___nodeType'
   | 'summary___content___content'
-  | 'summary___content___content___nodeType'
+  | 'summary___content___content___marks'
   | 'summary___content___content___value'
+  | 'summary___content___content___nodeType'
+  | 'summary___content___nodeType'
+  | 'summary___nodeType'
   | 'summary___summary'
   | 'summary___sys___type'
   | 'summary___json'
@@ -2518,12 +2523,13 @@ export type ContentfulInformationFieldsEnum =
   | 'childContentfulInformationSummaryRichTextNode___internal___mediaType'
   | 'childContentfulInformationSummaryRichTextNode___internal___owner'
   | 'childContentfulInformationSummaryRichTextNode___internal___type'
-  | 'childContentfulInformationSummaryRichTextNode___nodeType'
   | 'childContentfulInformationSummaryRichTextNode___content'
-  | 'childContentfulInformationSummaryRichTextNode___content___nodeType'
   | 'childContentfulInformationSummaryRichTextNode___content___content'
-  | 'childContentfulInformationSummaryRichTextNode___content___content___nodeType'
+  | 'childContentfulInformationSummaryRichTextNode___content___content___marks'
   | 'childContentfulInformationSummaryRichTextNode___content___content___value'
+  | 'childContentfulInformationSummaryRichTextNode___content___content___nodeType'
+  | 'childContentfulInformationSummaryRichTextNode___content___nodeType'
+  | 'childContentfulInformationSummaryRichTextNode___nodeType'
   | 'childContentfulInformationSummaryRichTextNode___summary'
   | 'childContentfulInformationSummaryRichTextNode___sys___type'
   | 'childContentfulInformationSummaryRichTextNode___json';
@@ -2576,9 +2582,9 @@ export type ContentfulInformationSummaryRichTextNode = Node & {
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
+  content?: Maybe<Array<Maybe<ContentfulInformationSummaryRichTextNodeContent>>>;
   /** @deprecated This field is deprecated, please use 'json' instead. */
   nodeType?: Maybe<Scalars['String']>;
-  content?: Maybe<Array<Maybe<ContentfulInformationSummaryRichTextNodeContent>>>;
   summary?: Maybe<Scalars['String']>;
   sys?: Maybe<ContentfulInformationSummaryRichTextNodeSys>;
   json?: Maybe<Scalars['JSON']>;
@@ -2606,27 +2612,41 @@ export type ContentfulInformationSummaryRichTextNodeConnectionGroupArgs = {
 };
 
 export type ContentfulInformationSummaryRichTextNodeContent = {
-  nodeType?: Maybe<Scalars['String']>;
   content?: Maybe<Array<Maybe<ContentfulInformationSummaryRichTextNodeContentContent>>>;
+  nodeType?: Maybe<Scalars['String']>;
 };
 
 export type ContentfulInformationSummaryRichTextNodeContentContent = {
-  nodeType?: Maybe<Scalars['String']>;
+  marks?: Maybe<Array<Maybe<ContentfulInformationSummaryRichTextNodeContentContentMarks>>>;
   value?: Maybe<Scalars['String']>;
+  nodeType?: Maybe<Scalars['String']>;
 };
 
 export type ContentfulInformationSummaryRichTextNodeContentContentFilterInput = {
-  nodeType?: Maybe<StringQueryOperatorInput>;
+  marks?: Maybe<ContentfulInformationSummaryRichTextNodeContentContentMarksFilterListInput>;
   value?: Maybe<StringQueryOperatorInput>;
+  nodeType?: Maybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulInformationSummaryRichTextNodeContentContentFilterListInput = {
   elemMatch?: Maybe<ContentfulInformationSummaryRichTextNodeContentContentFilterInput>;
 };
 
+export type ContentfulInformationSummaryRichTextNodeContentContentMarks = {
+  type?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulInformationSummaryRichTextNodeContentContentMarksFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+};
+
+export type ContentfulInformationSummaryRichTextNodeContentContentMarksFilterListInput = {
+  elemMatch?: Maybe<ContentfulInformationSummaryRichTextNodeContentContentMarksFilterInput>;
+};
+
 export type ContentfulInformationSummaryRichTextNodeContentFilterInput = {
-  nodeType?: Maybe<StringQueryOperatorInput>;
   content?: Maybe<ContentfulInformationSummaryRichTextNodeContentContentFilterListInput>;
+  nodeType?: Maybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulInformationSummaryRichTextNodeContentFilterListInput = {
@@ -2726,12 +2746,14 @@ export type ContentfulInformationSummaryRichTextNodeFieldsEnum =
   | 'internal___mediaType'
   | 'internal___owner'
   | 'internal___type'
-  | 'nodeType'
   | 'content'
-  | 'content___nodeType'
   | 'content___content'
-  | 'content___content___nodeType'
+  | 'content___content___marks'
+  | 'content___content___marks___type'
   | 'content___content___value'
+  | 'content___content___nodeType'
+  | 'content___nodeType'
+  | 'nodeType'
   | 'summary'
   | 'sys___type'
   | 'json';
@@ -2741,8 +2763,8 @@ export type ContentfulInformationSummaryRichTextNodeFilterInput = {
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  nodeType?: Maybe<StringQueryOperatorInput>;
   content?: Maybe<ContentfulInformationSummaryRichTextNodeContentFilterListInput>;
+  nodeType?: Maybe<StringQueryOperatorInput>;
   summary?: Maybe<StringQueryOperatorInput>;
   sys?: Maybe<ContentfulInformationSummaryRichTextNodeSysFilterInput>;
   json?: Maybe<JsonQueryOperatorInput>;
@@ -4363,6 +4385,7 @@ export type ContentfulSocial = Node & {
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
+  key?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   username?: Maybe<Scalars['String']>;
   url?: Maybe<Scalars['String']>;
@@ -4505,6 +4528,7 @@ export type ContentfulSocialFieldsEnum =
   | 'internal___mediaType'
   | 'internal___owner'
   | 'internal___type'
+  | 'key'
   | 'name'
   | 'username'
   | 'url'
@@ -4716,6 +4740,7 @@ export type ContentfulSocialFieldsEnum =
   | 'information___socials___internal___mediaType'
   | 'information___socials___internal___owner'
   | 'information___socials___internal___type'
+  | 'information___socials___key'
   | 'information___socials___name'
   | 'information___socials___username'
   | 'information___socials___url'
@@ -4757,10 +4782,10 @@ export type ContentfulSocialFieldsEnum =
   | 'information___summary___internal___mediaType'
   | 'information___summary___internal___owner'
   | 'information___summary___internal___type'
-  | 'information___summary___nodeType'
   | 'information___summary___content'
-  | 'information___summary___content___nodeType'
   | 'information___summary___content___content'
+  | 'information___summary___content___nodeType'
+  | 'information___summary___nodeType'
   | 'information___summary___summary'
   | 'information___summary___sys___type'
   | 'information___summary___json'
@@ -4785,10 +4810,10 @@ export type ContentfulSocialFieldsEnum =
   | 'information___childContentfulInformationSummaryRichTextNode___internal___mediaType'
   | 'information___childContentfulInformationSummaryRichTextNode___internal___owner'
   | 'information___childContentfulInformationSummaryRichTextNode___internal___type'
-  | 'information___childContentfulInformationSummaryRichTextNode___nodeType'
   | 'information___childContentfulInformationSummaryRichTextNode___content'
-  | 'information___childContentfulInformationSummaryRichTextNode___content___nodeType'
   | 'information___childContentfulInformationSummaryRichTextNode___content___content'
+  | 'information___childContentfulInformationSummaryRichTextNode___content___nodeType'
+  | 'information___childContentfulInformationSummaryRichTextNode___nodeType'
   | 'information___childContentfulInformationSummaryRichTextNode___summary'
   | 'information___childContentfulInformationSummaryRichTextNode___sys___type'
   | 'information___childContentfulInformationSummaryRichTextNode___json'
@@ -4808,6 +4833,7 @@ export type ContentfulSocialFilterInput = {
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
+  key?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   username?: Maybe<StringQueryOperatorInput>;
   url?: Maybe<StringQueryOperatorInput>;
@@ -8193,6 +8219,7 @@ export type QueryContentfulSocialArgs = {
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
+  key?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   username?: Maybe<StringQueryOperatorInput>;
   url?: Maybe<StringQueryOperatorInput>;
@@ -8247,8 +8274,8 @@ export type QueryContentfulInformationSummaryRichTextNodeArgs = {
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  nodeType?: Maybe<StringQueryOperatorInput>;
   content?: Maybe<ContentfulInformationSummaryRichTextNodeContentFilterListInput>;
+  nodeType?: Maybe<StringQueryOperatorInput>;
   summary?: Maybe<StringQueryOperatorInput>;
   sys?: Maybe<ContentfulInformationSummaryRichTextNodeSysFilterInput>;
   json?: Maybe<JsonQueryOperatorInput>;
@@ -8969,8 +8996,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___crossOrigin'
   | 'pluginCreator___pluginOptions___include_favicon'
   | 'pluginCreator___pluginOptions___cacheDigest'
-  | 'pluginCreator___pluginOptions___fileName'
-  | 'pluginCreator___pluginOptions___documentPaths'
   | 'pluginCreator___pluginOptions___id'
   | 'pluginCreator___pluginOptions___includeInDevelopment'
   | 'pluginCreator___pluginOptions___defaultDataLayer___type'
@@ -8984,6 +9009,9 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___isTSX'
   | 'pluginCreator___pluginOptions___jsxPragma'
+  | 'pluginCreator___pluginOptions___fileName'
+  | 'pluginCreator___pluginOptions___documentPaths'
+  | 'pluginCreator___pluginOptions___codegenDelay'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
   | 'pluginCreator___ssrAPIs'
@@ -9203,8 +9231,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___crossOrigin'
   | 'pluginOptions___include_favicon'
   | 'pluginOptions___cacheDigest'
-  | 'pluginOptions___fileName'
-  | 'pluginOptions___documentPaths'
   | 'pluginOptions___id'
   | 'pluginOptions___includeInDevelopment'
   | 'pluginOptions___defaultDataLayer___type'
@@ -9219,6 +9245,9 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___isTSX'
   | 'pluginOptions___jsxPragma'
+  | 'pluginOptions___fileName'
+  | 'pluginOptions___documentPaths'
+  | 'pluginOptions___codegenDelay'
   | 'nodeAPIs'
   | 'browserAPIs'
   | 'ssrAPIs'
@@ -9364,8 +9393,6 @@ export type SitePluginPluginOptions = {
   crossOrigin?: Maybe<Scalars['String']>;
   include_favicon?: Maybe<Scalars['Boolean']>;
   cacheDigest?: Maybe<Scalars['String']>;
-  fileName?: Maybe<Scalars['String']>;
-  documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
   id?: Maybe<Scalars['String']>;
   includeInDevelopment?: Maybe<Scalars['Boolean']>;
   defaultDataLayer?: Maybe<SitePluginPluginOptionsDefaultDataLayer>;
@@ -9379,6 +9406,9 @@ export type SitePluginPluginOptions = {
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
   jsxPragma?: Maybe<Scalars['String']>;
+  fileName?: Maybe<Scalars['String']>;
+  documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
+  codegenDelay?: Maybe<Scalars['Int']>;
 };
 
 export type SitePluginPluginOptionsDefaultDataLayer = {
@@ -9433,8 +9463,6 @@ export type SitePluginPluginOptionsFilterInput = {
   crossOrigin?: Maybe<StringQueryOperatorInput>;
   include_favicon?: Maybe<BooleanQueryOperatorInput>;
   cacheDigest?: Maybe<StringQueryOperatorInput>;
-  fileName?: Maybe<StringQueryOperatorInput>;
-  documentPaths?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   includeInDevelopment?: Maybe<BooleanQueryOperatorInput>;
   defaultDataLayer?: Maybe<SitePluginPluginOptionsDefaultDataLayerFilterInput>;
@@ -9448,6 +9476,9 @@ export type SitePluginPluginOptionsFilterInput = {
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
   jsxPragma?: Maybe<StringQueryOperatorInput>;
+  fileName?: Maybe<StringQueryOperatorInput>;
+  documentPaths?: Maybe<StringQueryOperatorInput>;
+  codegenDelay?: Maybe<IntQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsHeaders = {
@@ -9608,10 +9639,13 @@ export type IndexPageQueryQueryVariables = Exact<{
 }>;
 
 
-export type IndexPageQueryQuery = { information?: Maybe<{ summary?: Maybe<Pick<ContentfulInformationSummaryRichTextNode, 'json'>>, images?: Maybe<Array<Maybe<(
+export type IndexPageQueryQuery = { information?: Maybe<(
+    Pick<ContentfulInformation, 'name' | 'shortName' | 'definition'>
+    & { summary?: Maybe<Pick<ContentfulInformationSummaryRichTextNode, 'json'>>, images?: Maybe<Array<Maybe<(
       Pick<ContentfulAsset, 'id' | 'title'>
       & { fluid?: Maybe<GatsbyContentfulFluid_WithWebpFragment> }
-    )>>> }> };
+    )>>>, socials?: Maybe<Array<Maybe<Pick<ContentfulSocial, 'key' | 'name' | 'username' | 'url'>>>> }
+  )> };
 
 export type GatsbyContentfulFixedFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
