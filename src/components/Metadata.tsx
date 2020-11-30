@@ -15,21 +15,44 @@ import { useTheme } from "@emotion/react"
 export type Meta = JSX.IntrinsicElements["meta"]
 
 export interface SEOOptions extends BaseOptions {
-  description: string
-  meta?: Meta[]
   /**
    * page name
    */
   pageName: string
+
+  description: string
+
   /**
    * website title from graphql
    */
   title?: string
+
+  meta?: Meta[]
 }
 
-function SEO({ title, pageName, description, meta }: SEOOptions): JSX.Element {
+export interface HtmlOptions extends SEOOptions {
+  lang?: string
+  themeName?: string
+}
+
+export const Html = ({ themeName, lang, pageName, title, meta }: HtmlOptions): JSX.Element => {
+  return (
+    <Helmet
+      htmlAttributes={{
+        lang: lang ?? "unknown",
+        theme: themeName ?? "unknown",
+      }}
+      title={pageName}
+      titleTemplate={title ? `%s | ${title}` : `%s`}
+      meta={meta ?? []}
+    />
+  )
+}
+
+export default ({ title, pageName, description, meta }: SEOOptions): JSX.Element => {
   const intl = useIntl()
   const theme = useTheme()
+
   const defaultMeta: Meta[] = [
     {
       name: "title",
@@ -65,17 +88,16 @@ function SEO({ title, pageName, description, meta }: SEOOptions): JSX.Element {
     },
   ]
 
+  const metadata = defaultMeta.concat(meta ?? [])
+
   return (
-    <Helmet
-      htmlAttributes={{
-        lang: intl.locale,
-        theme: theme.name,
-      }}
-      title={pageName}
-      titleTemplate={title ? `%s | ${title}` : `%s`}
-      meta={defaultMeta.concat(meta ?? [])}
+    <Html
+      pageName={pageName}
+      description={description}
+      lang={intl.locale}
+      themeName={theme.name}
+      title={title}
+      meta={metadata}
     />
   )
 }
-
-export default SEO
