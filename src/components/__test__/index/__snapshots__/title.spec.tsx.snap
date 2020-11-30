@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComingSoon renders correctly when both name and shortname exist 1`] = `
+.emotion-0 {
+  padding-top: 1rem;
+  margin: 0.25rem;
+  font-family: Graphik,sans-serif;
+  font-size: 1.25rem;
+}
+
+@media (min-width: 1024px) {
+  .emotion-0 {
+    font-size: 1.5rem;
+  }
+}
+
+.emotion-2 {
+  font-weight: 600;
+}
+
+.emotion-2:hover {
+  font-weight: 700;
+}
+
+<h1
+  className="emotion-0 emotion-1"
+>
+  <span
+    className="emotion-2 emotion-3"
+  >
+    Test
+  </span>
+   (
+  T
+  )
+</h1>
+`;
+
+exports[`ComingSoon renders correctly when no input 1`] = `<span />`;
+
+exports[`ComingSoon renders correctly when only name exist 1`] = `
+.emotion-0 {
+  padding-top: 1rem;
+  margin: 0.25rem;
+  font-family: Graphik,sans-serif;
+  font-size: 1.25rem;
+}
+
+@media (min-width: 1024px) {
+  .emotion-0 {
+    font-size: 1.5rem;
+  }
+}
+
+.emotion-2 {
+  font-weight: 600;
+}
+
+.emotion-2:hover {
+  font-weight: 700;
+}
+
+<h1
+  className="emotion-0 emotion-1"
+>
+  <span
+    className="emotion-2 emotion-3"
+  >
+    Test
+  </span>
+</h1>
+`;
+
+exports[`ComingSoon renders correctly when only shortname exist 1`] = `
+.emotion-0 {
+  padding-top: 1rem;
+  margin: 0.25rem;
+  font-family: Graphik,sans-serif;
+  font-size: 1.25rem;
+}
+
+@media (min-width: 1024px) {
+  .emotion-0 {
+    font-size: 1.5rem;
+  }
+}
+
+<h1
+  className="emotion-0 emotion-1"
+>
+  T
+</h1>
+`;

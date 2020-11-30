@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComingSoon renders correctly when message is exist 1`] = `
+.emotion-0 {
+  padding-bottom: 0.75rem;
+  font-family: Graphik,sans-serif;
+  font-size: 1.125rem;
+}
+
+<h2
+  className="emotion-0 emotion-1"
+>
+  Test
+</h2>
+`;
+
+exports[`ComingSoon renders correctly when no input 1`] = `<span />`;
