@@ -1,6 +1,6 @@
 import React from "react"
 import { IconType } from "react-icons"
-import { Link } from "gatsby-plugin-intl"
+import { Link } from "gatsby"
 
 import tw from "twin.macro"
 import styled from "@emotion/styled/macro"
