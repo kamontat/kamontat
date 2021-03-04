@@ -23,6 +23,18 @@ export class PageBuilder extends SupportLogger {
       const context = {
         link: options.url,
         second: options.second ?? 0,
+
+        // Create `intl` object so `gatsby-plugin-intl` will skip
+        // generating language variations for this page
+        intl: {
+          language: "",
+          defaultLanguage: "",
+          languages: [],
+          messages: [],
+          routed: true,
+          originalPath: options.url,
+          redirect: false,
+        },
       }
 
       this.logger.print("info", {
