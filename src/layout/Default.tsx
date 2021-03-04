@@ -17,11 +17,7 @@ const RootContainer = styled.div([
   `max-height: 100vh`,
 ])
 
-const Main = tw.main`
-  h-full p-3
-`
-
-// const Footer = tw.footer``
+const Main = tw.main`h-full p-3`
 
 export interface DefaultLayoutOptions extends BaseOptions {
   pageName: string
@@ -53,7 +49,6 @@ export default ({ children, pageName, description }: DefaultLayoutOptions): JSX.
       <RootContainer>
         <Header title={title} />
         <Main>{children}</Main>
-        {/* <Footer>Footer</Footer> */}
       </RootContainer>
     </Base>
   )

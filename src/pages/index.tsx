@@ -47,7 +47,7 @@ export const query = graphql`
   }
 `
 
-const Index = tw.div`m-16 md:m-20 lg:m-32 px-2 md:px-8 lg:px-12`
+const Index = tw.div`px-2 md:px-8 lg:px-12 max-w-prose`
 
 interface IndexPageOptions extends BaseOptions {
   pageName: string

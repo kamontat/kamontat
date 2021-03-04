@@ -7,7 +7,7 @@ const FullHeightContainer = tw.div`
 `
 
 const CenterContainer = tw.div`
-  flex flex-col items-center justify-center text-center h-full
+  flex flex-col items-center justify-center text-center min-h-full
 `
 
 export default ({ children, pageName, description }: DefaultLayoutOptions): JSX.Element => {
