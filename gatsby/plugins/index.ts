@@ -10,6 +10,7 @@ import { SitemapOptions } from "./sitemap"
 import { ContentfulOptions } from "./contentful"
 import { I18NOptions } from "./i18n"
 import { IntlOptions } from "./intl"
+import { GraphqlCodegenOptions } from "./graphqlgen"
 
 export type PluginMapping = {
   "gatsby-source-filesystem": FileSystemOptions
@@ -20,7 +21,7 @@ export type PluginMapping = {
   "gatsby-plugin-emotion": EmotionOptions
   "gatsby-plugin-google-tagmanager": GTMOptions
   "gatsby-plugin-sharp": DefaultPluginOption
-  "gatsby-plugin-graphql-codegen": DefaultPluginOption
+  "gatsby-plugin-graphql-codegen": GraphqlCodegenOptions
   "gatsby-plugin-netlify": NetlifyOptions
   "gatsby-plugin-sentry": SentryOptions
   "gatsby-plugin-sitemap": SitemapOptions
