@@ -1,14 +1,21 @@
 module.exports = {
+  ignorePatterns: ["types/*.ts"],
   parser: `@typescript-eslint/parser`,
-  extends: ["plugin:@typescript-eslint/recommended", "plugin:prettier/recommended", "prettier/@typescript-eslint"],
   plugins: ["@typescript-eslint", "prettier"],
+  extends: [
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+  ],
   parserOptions: {
+    tsconfigRootDir: __dirname,
     ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
     sourceType: "module", // Allows for the use of imports
   },
   env: {
     browser: true,
     node: true,
+    es6: true,
   },
   rules: {
     indent: ["error", 2],
