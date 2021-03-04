@@ -24,13 +24,14 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "14.1.2",
     "@contentful/rich-text-types": "14.1.2",
-    "@emotion/react": "11.1.1",
-    "@emotion/styled": "11.0.0",
+    "@emotion/react": "11.1.5",
+    "@emotion/styled": "11.1.5",
     "@kcutils/helper": "1.0.3",
     "@kcutils/logger": "0.9.9",
     "@kcutils/random": "0.2.2",
     "gatsby": "2.27.3",
     "gatsby-image": "2.6.0",
+    "gatsby-plugin-emotion": "5.4.0",
     "gatsby-plugin-google-tagmanager": "2.6.0",
     "gatsby-plugin-graphql-codegen": "2.7.1",
     "gatsby-plugin-intl": "0.3.3",
@@ -49,11 +50,11 @@
     "react-helmet": "6.1.0",
     "react-icons": "4.1.0",
     "react-intl": "5.10.6",
-    "twin.macro": "1.12.1"
+    "twin.macro": "2.3.0"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-decorators": "7.12.1",
-    "@emotion/babel-plugin": "11.0.0",
+    "@emotion/babel-plugin": "11.2.0",
+    "@emotion/jest": "11.2.0",
     "@emotion/babel-plugin-jsx-pragmatic": "0.1.5",
     "@emotion/jest": "11.1.0",
     "@testing-library/cypress": "7.0.2",
@@ -81,7 +82,13 @@
     "start-server-and-test": "1.11.6",
     "typescript": "4.1.2"
   },
-  "keywords": [
-    "gatsby"
-  ]
+  "babelMacros": {
+    "twin": {
+      "preset": "emotion",
+      "config": "src/styles/tailwind.config.js",
+      "dataTwProp": false,
+      "debugPlugins": false,
+      "debug": false
+    }
+  }
 }

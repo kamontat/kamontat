@@ -16,7 +16,7 @@ const RootContainer = tw.div`
 `
 
 const LanguageTitle = tw.button`
-  block overflow-hidden focus:outline-none px-4 py-2 leading-none hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0
+  block overflow-hidden focus:outline-none px-4 py-2 leading-none hover:border-transparent hover:text-blue-500 hover:bg-white mt-4 lg:mt-0
 `
 
 const DropdownContainer = styled.div(({ hidden }) => [

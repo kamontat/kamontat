@@ -23,7 +23,7 @@ export interface SocialIconRootOptions extends SocialIconOptions {
 
 const Tooltip = styled.span`
   ${tw`absolute bottom-0 z-2 px-2 py-3 rounded-xl shadow-lg`}
-  ${tw`text-lg font-bold whitespace-no-wrap`}
+  ${tw`text-lg font-bold whitespace-nowrap`}
   ${tw`opacity-0 pointer-events-none`}
   ${tw`transition-all duration-300 ease-popup`}
 

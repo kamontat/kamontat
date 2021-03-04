@@ -1,7 +1,7 @@
-import { Global } from "@emotion/react"
 import React from "react"
 import { css } from "twin.macro"
-import { ThemeProvider } from "@emotion/react"
+import { Global, ThemeProvider } from "@emotion/react"
+
 import { ThemeName, ThemeProperties } from "../features/theme"
 import { useThemeContext } from "../features/theme/context"
 
