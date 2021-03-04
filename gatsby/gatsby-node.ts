@@ -47,21 +47,3 @@ export const createPages: CreatePages = async ({ graphql, actions }) => {
       url: `https://app.contentful.com/spaces/${id}/home`,
     }))
 }
-
-// interface Context {
-//   intl: {
-//     language: string
-//     languages: string[]
-//     messages: Record<string, string>
-//     routed: boolean
-//     originalPath: string
-//     redirect: boolean
-//     defaultLanguage: string
-//   }
-//   language: string
-// }
-// export const onCreatePage = ({ page }: CreatePageArgs<Context>): void => {
-//   // const { createPage, deletePage } = actions
-//   const { context } = page
-//   const intl = context.intl
-// }

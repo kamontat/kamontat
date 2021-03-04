@@ -1,12 +1,9 @@
 import React, { useState } from "react"
 import tw, { styled } from "twin.macro"
-import { useTheme } from "@emotion/react"
 import { IntlContextConsumer, changeLocale } from "gatsby-plugin-intl"
 
 import { BaseOptions } from "../Base"
 
-import { ThemeContextObject } from "../../features/theme"
-import { ThemeName } from "../../features/theme"
 import { getLanguageName } from "../../features/intl"
 
 type IntlConsumer = React.Consumer<{ languages: string[]; language: string }>
