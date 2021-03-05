@@ -1,10 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ComingSoon renders correctly when message is exist 1`] = `
+exports[`Definition renders correctly when message is exist 1`] = `
 .emotion-0 {
   padding-bottom: 0.75rem;
-  font-family: Graphik,sans-serif;
+  font-family: Open Sans,sans-serif;
   font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 <h2
@@ -14,4 +15,4 @@ exports[`ComingSoon renders correctly when message is exist 1`] = `
 </h2>
 `;
 
-exports[`ComingSoon renders correctly when no input 1`] = `<span />`;
+exports[`Definition renders correctly when no input 1`] = `<span />`;

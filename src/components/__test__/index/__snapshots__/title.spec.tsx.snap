@@ -4,13 +4,15 @@ exports[`ComingSoon renders correctly when both name and shortname exist 1`] = `
 .emotion-0 {
   padding-top: 1rem;
   margin: 0.25rem;
-  font-family: Graphik,sans-serif;
+  font-family: Merriweather,serif;
   font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 @media (min-width: 1024px) {
   .emotion-0 {
     font-size: 1.5rem;
+    line-height: 2rem;
   }
 }
 
@@ -42,13 +44,15 @@ exports[`ComingSoon renders correctly when only name exist 1`] = `
 .emotion-0 {
   padding-top: 1rem;
   margin: 0.25rem;
-  font-family: Graphik,sans-serif;
+  font-family: Merriweather,serif;
   font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 @media (min-width: 1024px) {
   .emotion-0 {
     font-size: 1.5rem;
+    line-height: 2rem;
   }
 }
 
@@ -75,13 +79,15 @@ exports[`ComingSoon renders correctly when only shortname exist 1`] = `
 .emotion-0 {
   padding-top: 1rem;
   margin: 0.25rem;
-  font-family: Graphik,sans-serif;
+  font-family: Merriweather,serif;
   font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 @media (min-width: 1024px) {
   .emotion-0 {
     font-size: 1.5rem;
+    line-height: 2rem;
   }
 }
 

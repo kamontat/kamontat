@@ -14,28 +14,38 @@ import { useTheme } from "@emotion/react"
 
 export type Meta = JSX.IntrinsicElements["meta"]
 
-export interface SEOOptions extends BaseOptions {
+export interface HtmlOptions extends BaseOptions {
   /**
-   * page name
+   * page name (will add to head.title)
    */
   pageName: string
 
-  description: string
-
   /**
-   * website title from graphql
+   * title name on specify page
    */
   title?: string
 
+  /**
+   * meta content append on head
+   */
   meta?: Meta[]
-}
 
-export interface HtmlOptions extends SEOOptions {
+  /**
+   * page languages (for i18n)
+   */
   lang?: string
+
+  /**
+   * theme name (for theme provider)
+   */
   themeName?: string
 }
 
-export const Html = ({ themeName, lang, pageName, title, meta }: HtmlOptions): JSX.Element => {
+export interface SEOOptions extends HtmlOptions {
+  description: string
+}
+
+export const Html = ({ themeName, lang, pageName, title, meta }: HtmlOptions): React.ReactElement => {
   return (
     <Helmet
       htmlAttributes={{
@@ -90,14 +100,5 @@ export default ({ title, pageName, description, meta }: SEOOptions): JSX.Element
 
   const metadata = defaultMeta.concat(meta ?? [])
 
-  return (
-    <Html
-      pageName={pageName}
-      description={description}
-      lang={intl.locale}
-      themeName={theme.name}
-      title={title}
-      meta={metadata}
-    />
-  )
+  return <Html pageName={pageName} lang={intl.locale} themeName={theme.name} title={title} meta={metadata} />
 }

@@ -2,7 +2,7 @@ import React from "react"
 import renderer from "react-test-renderer"
 import { Definition } from "../../index/Definition"
 
-describe("ComingSoon", () => {
+describe("Definition", () => {
   it("renders correctly when no input", () => {
     const tree = renderer.create(<Definition />).toJSON()
     expect(tree).toMatchSnapshot()

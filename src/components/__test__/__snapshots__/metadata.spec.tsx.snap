@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Metadata.Html with metadata 1`] = `
+Object {
+  "baseTag": Array [],
+  "bodyAttributes": Object {},
+  "defer": true,
+  "encode": true,
+  "htmlAttributes": Object {
+    "lang": "en",
+    "theme": "unknown",
+  },
+  "linkTags": Array [],
+  "metaTags": Array [
+    Object {
+      "content": "title",
+      "name": "title",
+    },
+    Object {
+      "content": "world",
+      "name": "hello",
+    },
+  ],
+  "noscriptTags": Array [],
+  "onChangeClientState": [Function],
+  "scriptTags": Array [],
+  "styleTags": Array [],
+  "title": "page-name",
+  "titleAttributes": Object {},
+}
+`;
+
+exports[`Metadata.Html with page name as title of html 1`] = `
+Object {
+  "baseTag": Array [],
+  "bodyAttributes": Object {},
+  "defer": true,
+  "encode": true,
+  "htmlAttributes": Object {
+    "lang": "en",
+    "theme": "unknown",
+  },
+  "linkTags": Array [],
+  "metaTags": Array [],
+  "noscriptTags": Array [],
+  "onChangeClientState": [Function],
+  "scriptTags": Array [],
+  "styleTags": Array [],
+  "title": "page-name",
+  "titleAttributes": Object {},
+}
+`;
