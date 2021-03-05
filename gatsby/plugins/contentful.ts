@@ -5,16 +5,13 @@ export type Locale = {
   code: string
 }
 
-export type RichTextOption = {
-  resolveFieldLocales?: boolean
-}
-
 export type LocaleFilterFn = (locale: Locale) => boolean
 
 // https://www.gatsbyjs.org/packages/gatsby-source-contentful
 export interface ContentfulOptions extends DefaultPluginOption {
   spaceId: string
   accessToken: string
+
   host?: Hostname
   environment?: string
   downloadLocal?: boolean
@@ -22,5 +19,5 @@ export interface ContentfulOptions extends DefaultPluginOption {
   forceFullSync?: boolean
   useNameForId?: boolean
   pageLimit?: number
-  richText?: RichTextOption
+  assetDownloadWorkers?: number
 }

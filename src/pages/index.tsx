@@ -28,7 +28,7 @@ export const query = graphql`
       shortName
       definition
       summary {
-        json
+        raw
       }
       images {
         id
@@ -61,7 +61,7 @@ interface IndexPageOptions extends BaseOptions {
   shortName?: string
   definition?: string
 
-  summary?: Document
+  summary?: string
   socials: SocialObject[]
 }
 
@@ -83,7 +83,7 @@ const IndexPage = ({
           <Title name={name} shortname={shortName} />
           <Definition message={definition} />
 
-          {summary && <RichText css={[tw`text-center`]} json={summary} />}
+          {summary && <RichText css={[tw`text-center`]} raw={summary} />}
 
           <SocialMedia social={socials} />
         </Index>
@@ -107,7 +107,7 @@ export default ({ data }: RootOptions): JSX.Element => {
   const shortName = data?.information?.shortName ?? undefined
   const definition = data?.information?.definition ?? undefined
 
-  const summary: Document = data?.information?.summary?.json ?? undefined
+  const summary = data?.information?.summary?.raw ?? undefined
 
   // TODO: Make this more easier to read
   const socials =
