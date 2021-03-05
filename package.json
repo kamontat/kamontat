@@ -2,7 +2,7 @@
   "name": "@kamontat/website",
   "private": true,
   "description": "personal website written using gatsby, react, and tailwindcss",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": {
     "name": "Kamontat Chantrachirathumrong",
     "email": "developer@kamontat.net",
