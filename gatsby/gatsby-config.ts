@@ -72,8 +72,6 @@ export default ({ projectRoot }: TSConfigSetupOptions): GatsbyConfig => {
   // https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap
   pluginBuilder.new("gatsby-plugin-sitemap")
 
-  // TODO: upgrade gatsby-source-contentful to version 4
-
   // https://www.gatsbyjs.org/packages/gatsby-source-contentful
   pluginBuilder.new(`gatsby-source-contentful`, {
     // host: "cdn.contentful.com",
