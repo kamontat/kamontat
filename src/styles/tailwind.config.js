@@ -1,16 +1,13 @@
 // https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js
 
-/* eslint-disable */
-
-// TODO upgrade tailwindcss to version 2
 // const colors = require("tailwindcss/colors")
 
 module.exports = {
   theme: {
     fontFamily: {
-      // TODO: replace font for sans and serif in website
-      sans: ["Graphik", "sans-serif"],
+      sans: ["Open Sans", "sans-serif"],
       serif: ["Merriweather", "serif"],
+      mono: ["JetBrains Mono", "ui-monospace"],
     },
     extend: {
       transitionTimingFunction: {
@@ -34,5 +31,3 @@ module.exports = {
     },
   },
 }
-
-/* eslint-enable */
