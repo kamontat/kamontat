@@ -18,7 +18,6 @@ interface GlobalStylesOptions extends BaseOptions {
 
 const StyleImporter = ({ theme }: GlobalStylesOptions): JSX.Element => (
   <Global
-    // TODO: Import correct font that we will use
     styles={css`
       body {
         background: ${theme.background};
