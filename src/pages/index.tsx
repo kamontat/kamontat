@@ -1,25 +1,24 @@
 import React from "react"
-import { IconContext } from "react-icons"
 import tw from "twin.macro"
+import { IconContext } from "react-icons"
+import { Randoms, Seeds } from "@kcutils/random"
 
 import { graphql } from "gatsby"
 import { FluidObject } from "gatsby-image"
 import { useIntl } from "gatsby-plugin-intl"
 
-import { Document } from "@contentful/rich-text-types"
-import { Randoms, Seeds } from "@kcutils/random"
-
 import { BaseOptions } from "../layout/Base"
 import CenterLayout from "../layout/Center"
 
 import RichText from "../components/ContentfulRichText"
-
 import { Avatar } from "../components/index/Avatar"
 import { Title } from "../components/index/Title"
 import { Definition } from "../components/index/Definition"
 import { SocialMedia, SocialObject } from "../components/index/SocialMedia"
 
 import { IndexPageQueryQuery } from "../../types/gatsby-graphql"
+
+import { builder } from "../features/builders/social"
 
 export const query = graphql`
   query IndexPageQuery($language: String) {
@@ -109,20 +108,7 @@ export default ({ data }: RootOptions): JSX.Element => {
 
   const summary = data?.information?.summary?.raw ?? undefined
 
-  // TODO: Make this more easier to read
-  const socials =
-    data?.information?.socials
-      ?.map((a) => {
-        if (!a) return undefined
-        if (!a.name || !a.url) return undefined
-        return {
-          key: a.key,
-          name: a.name,
-          url: a.url,
-          username: a.username ?? undefined,
-        }
-      })
-      .filter<SocialObject>((a): a is SocialObject => a !== undefined) ?? []
+  const socials = builder(data?.information?.socials)
 
   return (
     <IndexPage
