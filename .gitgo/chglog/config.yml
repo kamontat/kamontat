@@ -25,8 +25,8 @@ options:
       - Type
       - Scope
       - Subject
-  issues: 
-    prefix: 
+  issues:
+    prefix:
       - "#"
   notes:
     keywords:
