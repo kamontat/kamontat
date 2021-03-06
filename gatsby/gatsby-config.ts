@@ -103,6 +103,7 @@ export default ({ projectRoot }: TSConfigSetupOptions): GatsbyConfig => {
 
   // https://www.gatsbyjs.org/packages/gatsby-plugin-graphql-codegen
   pluginBuilder.new("gatsby-plugin-graphql-codegen", {
+    codegen: false,
     fileName: helper.joinPath("types", "gatsby-graphql.ts"),
     documentPaths: [
       helper.joinPath("src", "**", "*.{ts,tsx}"),
