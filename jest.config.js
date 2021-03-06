@@ -24,4 +24,9 @@ module.exports = {
   testURL: `http://localhost`,
   setupFiles: [path.join(setupPath, "loadershim.js")],
   setupFilesAfterEnv: [path.join(setupPath, "jest-postprocess.js")],
+
+  reporters: ["default"],
+
+  collectCoverageFrom: ["src/**/*.{ts,tsx}"],
+  coverageReporters: ["lcov", "text"],
 }

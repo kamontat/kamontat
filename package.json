@@ -21,6 +21,7 @@
     "cy:open": "cypress open --config-file cypress/config.json",
     "cy:run": "cypress run --config-file cypress/config.json",
     "test": "jest",
+    "coverage": "jest --coverage",
     "test:ci": "jest --ci --runInBand",
     "test:e2e": "start-server-and-test dev http://localhost:8000 cy:open",
     "test:e2e:ci": "start-server-and-test dev http://localhost:8000 cy:run"
