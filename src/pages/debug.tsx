@@ -50,7 +50,7 @@ const DebugPage = ({ site, title, subtitle }: DebugOptions): JSX.Element => {
         }
 
         if (site.siteMetadata.package.version) {
-          data.push({ key: "Website version", value: site.siteMetadata.package.version })
+          data.push({ key: "Website version", value: `v${site.siteMetadata.package.version}` })
         }
       }
 
@@ -69,14 +69,12 @@ const DebugPage = ({ site, title, subtitle }: DebugOptions): JSX.Element => {
       if (site.siteMetadata.netlify) {
         if (site.siteMetadata.netlify.id) {
           data.push({ key: "Build ID", value: site.siteMetadata.netlify.id })
-        }
-
-        if (site.siteMetadata.netlify.deployID) {
-          data.push({ key: "Deploy ID", value: site.siteMetadata.netlify.deployID })
-        }
-
-        if (site.siteMetadata.netlify.context) {
-          data.push({ key: "Context", value: site.siteMetadata.netlify.context })
+          if (
+            site.siteMetadata.netlify.deployID &&
+            site.siteMetadata.netlify.deployID !== site.siteMetadata.netlify.id
+          ) {
+            data.push({ key: "Deploy ID", value: site.siteMetadata.netlify.deployID })
+          }
         }
       }
 
@@ -91,10 +89,12 @@ const DebugPage = ({ site, title, subtitle }: DebugOptions): JSX.Element => {
 
         if (site.siteMetadata.git.commit) {
           data.push({ key: "Git commit", value: site.siteMetadata.git.commit })
-        }
-
-        if (site.siteMetadata.git.previousCommit) {
-          data.push({ key: "Git previous commit", value: site.siteMetadata.git.previousCommit })
+          if (
+            site.siteMetadata.git.previousCommit &&
+            site.siteMetadata.git.previousCommit !== site.siteMetadata.git.commit
+          ) {
+            data.push({ key: "Git previous commit", value: site.siteMetadata.git.previousCommit })
+          }
         }
 
         if (site.siteMetadata.git.prID) {
