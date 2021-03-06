@@ -6,7 +6,7 @@ jobs:
   test:
     strategy:
       matrix:
-        platform: [ubuntu-latest, macOS-latest]
+        platform: [ubuntu-latest]
         # 14 - LTS (primary)
         # 15 - Current
         node-version: [14.x, 15.x]
