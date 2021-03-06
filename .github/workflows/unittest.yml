@@ -7,7 +7,9 @@ jobs:
     strategy:
       matrix:
         platform: [ubuntu-latest, macOS-latest]
-        node-version: [12.x, 14.x]
+        # 14 - LTS (primary)
+        # 15 - Current
+        node-version: [14.x, 15.x]
 
     name: Unittest node/${{ matrix.node-version }} ${{ matrix.platform }}
     runs-on: ${{ matrix.platform }}
