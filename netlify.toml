@@ -21,7 +21,7 @@
 
 [build.environment]
   NODE_ENV = "development"
-  NODE_VERSION = "15"
+  NODE_VERSION = "14"
   YARN_VERSION = "1.22.10"
   YARN_FLAGS = "--ignore-optional"
 
