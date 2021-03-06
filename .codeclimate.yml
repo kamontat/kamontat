@@ -43,6 +43,13 @@ plugins:
     enabled: true
   eslint:
     enabled: true
+    channel: "eslint-7"
+    config:
+      extensions:
+        - .js
+        - .jsx
+        - .ts
+        - .tsx
   nodesecurity:
     enabled: true
 exclude_patterns:
