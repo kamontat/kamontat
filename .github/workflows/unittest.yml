@@ -4,13 +4,13 @@ on:
 
 jobs:
   test:
-    name: "Unit-test"
-    runs-on: ubuntu-latest
-
     strategy:
       matrix:
+        platform: [ubuntu-latest, macOS-latest]
         node-version: [12.x, 14.x]
 
+    name: Unittest node/${{ matrix.node }} ${{ matrix.platform }}
+    runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js ${{ matrix.node-version }}
@@ -19,3 +19,20 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: yarn
       - run: yarn test:ci
+  coverage:
+    needs: [test]
+    name: coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "14.x"
+      - run: yarn
+      - uses: paambaati/codeclimate-action@v2.7.5
+        env:
+          CC_TEST_REPORTER_ID: e6208ecd3aae65672e3b6b68da261db411c619723e0828aba281fce2f554c8b9
+        with:
+          coverageCommand: yarn coverage
+          coverageLocations: ${{github.workspace}}/coverage/lcov.info:lcov
+          debug: true
