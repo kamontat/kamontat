@@ -27,23 +27,31 @@ const SocialBar = tw.div`inline-flex`
 export const SocialMedia = ({ social }: SocialOptions): JSX.Element => {
   return (
     <SocialBar>
-      {social.map((s) => {
-        if (s.key.toLowerCase() === "facebook")
-          return <Facebook key={s.key} type={s.key} name={s.name} url={s.url} title={s.username} />
-        else if (s.key.toLowerCase() === "twitter")
-          return <Twitter key={s.key} type={s.key} name={s.name} url={s.url} title={s.username} />
-        else if (s.key.toLowerCase() === "youtube")
-          return <Youtube key={s.key} type={s.key} name={s.name} url={s.url} title={s.username} />
-        else if (s.key.toLowerCase() === "linkedin")
-          return <Linkedin key={s.key} type={s.key} name={s.name} url={s.url} title={s.username} />
-        else if (s.key.toLowerCase() === "instagram")
-          return <Instagram key={s.key} type={s.key} name={s.name} url={s.url} title={s.username} />
-        else if (s.key.toLowerCase() === "github")
-          return <Github key={s.key} type={s.key} name={s.name} url={s.url} title={s.username} />
-        else {
-          console.log(`not support ${s.name} social media`)
+      {social.reduce((result, s) => {
+        const key = s.key.toLowerCase()
+        switch (key) {
+          case "facebook":
+            result.push(<Facebook key={s.key} type={s.key} name={s.name} url={s.url} title={s.username} />)
+            break
+          case "twitter":
+            result.push(<Twitter key={s.key} type={s.key} name={s.name} url={s.url} title={s.username} />)
+            break
+          case "youtube":
+            result.push(<Youtube key={s.key} type={s.key} name={s.name} url={s.url} title={s.username} />)
+            break
+          case "linkedin":
+            result.push(<Linkedin key={s.key} type={s.key} name={s.name} url={s.url} title={s.username} />)
+            break
+          case "instagram":
+            result.push(<Instagram key={s.key} type={s.key} name={s.name} url={s.url} title={s.username} />)
+            break
+          case "github":
+            result.push(<Github key={s.key} type={s.key} name={s.name} url={s.url} title={s.username} />)
+            break
         }
-      })}
+
+        return result
+      }, [] as JSX.Element[])}
     </SocialBar>
   )
 }
