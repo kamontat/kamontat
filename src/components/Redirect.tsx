@@ -9,10 +9,18 @@ interface RedirectOptions extends BaseOptions {
   second?: number
 }
 
-const Redirect = ({ link, second }: RedirectOptions): JSX.Element => (
-  <Helmet
-    meta={[{ "http-equiv": "refresh", content: `${second ?? 0}; url=${link ?? "/?error=true"}` } as Meta]}
-  ></Helmet>
-)
+const Redirect = ({ link, second }: RedirectOptions): JSX.Element => {
+  const option = {
+    second: second ?? 0,
+    link: link ?? "/?redirect=failed",
+  }
+
+  const meta = {
+    "http-equiv": "refresh",
+    content: `${option.second}; url=${option.link}`,
+  } as Meta
+
+  return <Helmet meta={[meta]} />
+}
 
 export default Redirect
