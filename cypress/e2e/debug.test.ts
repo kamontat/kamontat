@@ -1,5 +1,3 @@
-/// <reference types="Cypress" />
-
 describe("Debug page tests", () => {
   beforeEach(() => {
     cy.visit("/debug", { timeout: 3000 }).get("main").injectAxe()
