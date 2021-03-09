@@ -1,15 +1,15 @@
 import React from "react"
-import renderer from "react-test-renderer"
+import { render } from "@testing-library/react"
 import { Definition } from "../../index/Definition"
 
 describe("Definition", () => {
   it("renders correctly when no input", () => {
-    const tree = renderer.create(<Definition />).toJSON()
-    expect(tree).toMatchSnapshot()
+    const { container } = render(<Definition />)
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it("renders correctly when message is exist", () => {
-    const tree = renderer.create(<Definition message={"Test"} />).toJSON()
-    expect(tree).toMatchSnapshot()
+    const { container } = render(<Definition message="Test" />)
+    expect(container.firstChild).toMatchSnapshot()
   })
 })

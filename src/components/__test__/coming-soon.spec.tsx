@@ -1,10 +1,10 @@
 import React from "react"
-import renderer from "react-test-renderer"
+import { render } from "@testing-library/react"
 import ComingSoon from "../ComingSoon"
 
 describe("ComingSoon", () => {
   it("renders correctly", () => {
-    const tree = renderer.create(<ComingSoon />).toJSON()
-    expect(tree).toMatchSnapshot()
+    const { container } = render(<ComingSoon />)
+    expect(container.firstChild).toMatchSnapshot()
   })
 })

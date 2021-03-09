@@ -1,52 +1,76 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Metadata.Html with metadata 1`] = `
-Object {
-  "baseTag": Array [],
-  "bodyAttributes": Object {},
-  "defer": true,
-  "encode": true,
-  "htmlAttributes": Object {
-    "lang": "en",
-    "theme": "unknown",
-  },
-  "linkTags": Array [],
-  "metaTags": Array [
-    Object {
-      "content": "title",
-      "name": "title",
-    },
-    Object {
-      "content": "world",
-      "name": "hello",
-    },
-  ],
-  "noscriptTags": Array [],
-  "onChangeClientState": [Function],
-  "scriptTags": Array [],
-  "styleTags": Array [],
-  "title": "page-name",
-  "titleAttributes": Object {},
-}
+exports[`Metadata Render custom meta 1`] = `
+NodeList [
+  <meta
+    content=""
+    data-react-helmet="true"
+    name="title"
+  />,
+  <meta
+    content="test"
+    data-react-helmet="true"
+    name="description"
+  />,
+  <meta
+    content=""
+    data-react-helmet="true"
+    property="og:title"
+  />,
+  <meta
+    content="test"
+    data-react-helmet="true"
+    property="og:description"
+  />,
+  <meta
+    content="website"
+    data-react-helmet="true"
+    property="og:type"
+  />,
+  <meta
+    content="summary"
+    data-react-helmet="true"
+    name="twitter:card"
+  />,
+  <meta
+    content=""
+    data-react-helmet="true"
+    name="twitter:title"
+  />,
+  <meta
+    content="test"
+    data-react-helmet="true"
+    name="twitter:description"
+  />,
+  <meta
+    content="content-1"
+    data-react-helmet="true"
+    name="name-1"
+  />,
+]
 `;
 
-exports[`Metadata.Html with page name as title of html 1`] = `
-Object {
-  "baseTag": Array [],
-  "bodyAttributes": Object {},
-  "defer": true,
-  "encode": true,
-  "htmlAttributes": Object {
-    "lang": "en",
-    "theme": "unknown",
-  },
-  "linkTags": Array [],
-  "metaTags": Array [],
-  "noscriptTags": Array [],
-  "onChangeClientState": [Function],
-  "scriptTags": Array [],
-  "styleTags": Array [],
-  "title": "page-name",
-  "titleAttributes": Object {},
-}
+exports[`Metadata.Html with multiple custom metadata tags 1`] = `
+NodeList [
+  <meta
+    content="content-1"
+    data-react-helmet="true"
+    name="name-1"
+  />,
+  <meta
+    content="content-2"
+    data-react-helmet="true"
+    name="name-2"
+  />,
+]
+`;
+
+exports[`Metadata.Html with single custom metadata tag 1`] = `
+NodeList [
+  <meta
+    content="content"
+    data-react-helmet="true"
+    name="name"
+  />,
+]
 `;

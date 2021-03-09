@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Redirect with redirect link and custom delay 1`] = `
+<meta
+  content="30; url=https://google.com"
+  data-react-helmet="true"
+  http-equiv="refresh"
+/>
+`;
+
+exports[`Redirect with redirect link and default delay 1`] = `
+<meta
+  content="0; url=https://google.com"
+  data-react-helmet="true"
+  http-equiv="refresh"
+/>
+`;
+
+exports[`Redirect without redirect link specify 1`] = `
+<meta
+  content="0; url=/?redirect=failed"
+  data-react-helmet="true"
+  http-equiv="refresh"
+/>
+`;

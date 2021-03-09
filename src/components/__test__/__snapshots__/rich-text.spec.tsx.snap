@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contentful.RichText generate content from raw 1`] = `
+.emotion-0 {
+  font-size: 1rem;
+  line-height: 1.625;
+  white-space: pre-line;
+}
+
+.emotion-2 {
+  font-weight: 700;
+}
+
+<p
+  class="emotion-0 emotion-1"
+>
+  hello world
+  <u>
+    3
+  </u>
+   times. 
+  <span
+    class="emotion-2 emotion-3"
+  >
+    New word
+  </span>
+   will create 
+  <span
+    class="emotion-2 emotion-3"
+  >
+    new name
+  </span>
+  .
+</p>
+`;
+
+exports[`Contentful.RichText generate content from raw and references 1`] = `
+.emotion-0 {
+  font-size: 1rem;
+  line-height: 1.625;
+  white-space: pre-line;
+}
+
+.emotion-2 {
+  font-weight: 700;
+}
+
+<p
+  class="emotion-0 emotion-1"
+>
+  hello world
+  <u>
+    3
+  </u>
+   times. 
+  <span
+    class="emotion-2 emotion-3"
+  >
+    New word
+  </span>
+   will create 
+  <span
+    class="emotion-2 emotion-3"
+  >
+    new name
+  </span>
+  .
+</p>
+`;
+
+exports[`Contentful.RichText generate empty component 1`] = `<p />`;

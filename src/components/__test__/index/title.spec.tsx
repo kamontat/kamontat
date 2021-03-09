@@ -1,25 +1,25 @@
 import React from "react"
-import renderer from "react-test-renderer"
+import { render } from "@testing-library/react"
 import { Title } from "../../index/Title"
 
 describe("ComingSoon", () => {
   it("renders correctly when no input", () => {
-    const tree = renderer.create(<Title />).toJSON()
-    expect(tree).toMatchSnapshot()
+    const { container } = render(<Title />)
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it("renders correctly when only name exist", () => {
-    const tree = renderer.create(<Title name={"Test"} />).toJSON()
-    expect(tree).toMatchSnapshot()
+    const { container } = render(<Title name={"Test"} />)
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it("renders correctly when only shortname exist", () => {
-    const tree = renderer.create(<Title shortname={"T"} />).toJSON()
-    expect(tree).toMatchSnapshot()
+    const { container } = render(<Title shortname={"T"} />)
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it("renders correctly when both name and shortname exist", () => {
-    const tree = renderer.create(<Title name="Test" shortname={"T"} />).toJSON()
-    expect(tree).toMatchSnapshot()
+    const { container } = render(<Title name="Test" shortname={"T"} />)
+    expect(container.firstChild).toMatchSnapshot()
   })
 })

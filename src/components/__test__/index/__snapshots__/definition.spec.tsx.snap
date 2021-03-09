@@ -9,7 +9,7 @@ exports[`Definition renders correctly when message is exist 1`] = `
 }
 
 <h2
-  className="emotion-0 emotion-1"
+  class="emotion-0 emotion-1"
 >
   Test
 </h2>
