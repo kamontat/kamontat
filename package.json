@@ -3,15 +3,23 @@
   "private": true,
   "description": "personal website written using gatsby, react, and tailwindcss",
   "version": "0.2.0",
+  "license": "BSD-3-Clause",
+  "keywords": [
+    "gatsby",
+    "portfolio",
+    "personal",
+    "typescript",
+    "website"
+  ],
   "author": {
     "name": "Kamontat Chantrachirathumrong",
     "email": "developer@kamontat.net",
     "url": "https://kamontat.net"
   },
-  "keywords": [
-    "gatsby",
-    "portfolio"
-  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kamontat/kamontat.git"
+  },
   "scripts": {
     "dev": "gatsby develop",
     "lint": "eslint --ignore-path .gitignore .",
@@ -21,8 +29,9 @@
     "cy:open": "cypress open --config-file cypress/config.json",
     "cy:run": "cypress run --config-file cypress/config.json",
     "test": "jest",
-    "coverage": "jest --coverage",
     "test:ci": "jest --ci --runInBand",
+    "coverage": "jest --coverage",
+    "coverage:ci": "jest --coverage --ci --runInBand",
     "test:e2e": "start-server-and-test dev http://localhost:8000 cy:open",
     "test:e2e:ci": "start-server-and-test dev http://localhost:8000 cy:run"
   },
