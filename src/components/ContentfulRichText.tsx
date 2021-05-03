@@ -5,7 +5,7 @@ import { BLOCKS, MARKS } from "@contentful/rich-text-types"
 import { renderRichText, ContentfulRichTextGatsbyReference } from "gatsby-source-contentful/rich-text"
 
 import { BaseOptions } from "../layout/Base"
-import { generic } from "@kcutils/helper"
+import { nonEmpty } from "@kcutils/helper/lib/types/generic"
 
 const Bold = tw.span`font-bold`
 const Text = styled.p(() => [tw`text-base leading-relaxed`, "white-space: pre-line"])
@@ -25,7 +25,7 @@ const wrapper = (opt: Partial<RichTextOptions>): RichTextOptions => {
 }
 
 const RichText = (data: Partial<RichTextOptions>): JSX.Element => {
-  if (generic.nonEmpty(data.raw))
+  if (nonEmpty(data.raw))
     return renderRichText(wrapper(data), {
       renderMark: {
         [MARKS.BOLD]: (text) => <Bold>{text}</Bold>,

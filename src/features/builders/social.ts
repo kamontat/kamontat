@@ -1,4 +1,4 @@
-import { generic } from "@kcutils/helper"
+import { noExist } from "@kcutils/helper/lib/types/generic"
 import { ContentfulSocial, Maybe } from "../../../types/gatsby-graphql"
 
 export interface SocialObject {
@@ -12,13 +12,13 @@ export interface SocialObject {
 export const builder = (
   socials: Maybe<Pick<ContentfulSocial, "name" | "key" | "username" | "url">>[] | null | undefined
 ): SocialObject[] => {
-  if (generic.noExist(socials)) return []
+  if (noExist(socials)) return []
 
   return socials.reduce((result, social) => {
-    if (generic.noExist(social)) return result
-    if (generic.noExist(social.key)) return result
-    if (generic.noExist(social.name)) return result
-    if (generic.noExist(social.url)) return result
+    if (noExist(social)) return result
+    if (noExist(social.key)) return result
+    if (noExist(social.name)) return result
+    if (noExist(social.url)) return result
     return result.concat({
       key: social.key,
       name: social.name,
