@@ -27,12 +27,13 @@ export const Dropdown = ({ current, choices, equally, toName, onMenu }: Dropdown
   return (
     <div tw="relative">
       <Button {...menu}>{currentName}</Button>
-      <Menu {...menu} aria-label={currentName} tw="mt-3">
+      <Menu {...menu} aria-label={currentName}>
         {choices
           .filter((choice) => !equally(current, choice))
           .map((choice) => {
             return (
               <DropdownItem
+                key={toName(choice)}
                 {...menu}
                 onClick={() => {
                   menu.hide()
