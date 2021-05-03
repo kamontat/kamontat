@@ -4,7 +4,7 @@ import { IconContext } from "react-icons"
 import { Randoms, Seeds } from "@kcutils/random"
 
 import { graphql } from "gatsby"
-import { FluidObject } from "gatsby-image"
+import { IGatsbyImageData } from "gatsby-plugin-image"
 import { useIntl } from "gatsby-plugin-intl"
 
 import { BaseOptions } from "../layout/Base"
@@ -32,9 +32,7 @@ export const query = graphql`
       images {
         id
         title
-        fluid(maxWidth: 500) {
-          ...GatsbyContentfulFluid_withWebp
-        }
+        gatsbyImageData(formats: AUTO, width: 500, placeholder: BLURRED)
       }
       socials {
         key
@@ -52,8 +50,8 @@ interface IndexPageOptions extends BaseOptions {
   pageName: string
   image: {
     id?: string
-    fluid?: FluidObject
     title?: string
+    gatsbyImageData?: IGatsbyImageData
   }
 
   name?: string
@@ -77,7 +75,7 @@ const IndexPage = ({
     <CenterLayout pageName={pageName}>
       <IconContext.Provider value={{ style: tw`w-8 h-8 block relative` }}>
         <Index>
-          {image && <Avatar key={image.id} fluid={image?.fluid} alt={image?.title} />}
+          {image && <Avatar key={image.id} image={image?.gatsbyImageData} alt={image?.title} />}
 
           <Title name={name} shortname={shortName} />
           <Definition message={definition} />
@@ -116,7 +114,7 @@ export default ({ data }: RootOptions): JSX.Element => {
       image={{
         id: profileImage?.id,
         title: profileImage?.title ?? undefined,
-        fluid: (profileImage?.fluid ?? undefined) as FluidObject | undefined,
+        gatsbyImageData: (profileImage?.gatsbyImageData ?? undefined) as IGatsbyImageData | undefined,
       }}
       name={name}
       shortName={shortName}

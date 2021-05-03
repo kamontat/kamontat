@@ -1,17 +1,17 @@
 import React from "react"
-import Img, { FluidObject } from "gatsby-image"
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 import tw, { styled } from "twin.macro"
 
 import { BaseOptions } from "../../layout/Base"
 
 interface AvatarOptions extends BaseOptions {
   alt?: string
-  fluid?: FluidObject
+  image?: IGatsbyImageData
 }
 
-const Image = styled(Img)(() => [tw`w-64 h-auto mx-auto`, tw`rounded md:rounded-lg`])
+const Image = styled(GatsbyImage)(() => [tw`w-64 h-auto mx-auto`, tw`rounded md:rounded-lg`])
 
-export const Avatar = ({ fluid, alt }: AvatarOptions): JSX.Element => {
-  if (fluid) return <Image fluid={fluid} alt={alt ?? "unknown"} />
+export const Avatar = ({ image, alt }: AvatarOptions): JSX.Element => {
+  if (image) return <Image image={image} alt={alt ?? "unknown"} />
   else return <div />
 }

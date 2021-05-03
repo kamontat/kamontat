@@ -86,6 +86,12 @@ export default ({ projectRoot }: TSConfigSetupOptions): GatsbyConfig => {
   // https://www.gatsbyjs.org/packages/gatsby-source-filesystem
   pluginBuilder.new("gatsby-source-filesystem", { name: "images", path: helper.joinRootPath("src", "images") })
 
+  // https://www.gatsbyjs.org/packages/gatsby-source-filesystem
+  pluginBuilder.new("gatsby-source-filesystem", { name: "src", path: helper.joinRootPath("src") })
+
+  // https://www.gatsbyjs.org/packages/gatsby-plugin-image/
+  pluginBuilder.new(`gatsby-plugin-image`)
+
   // https://www.gatsbyjs.org/packages/gatsby-plugin-sharp/
   pluginBuilder.new(`gatsby-plugin-sharp`)
 
@@ -103,7 +109,7 @@ export default ({ projectRoot }: TSConfigSetupOptions): GatsbyConfig => {
 
   // https://www.gatsbyjs.org/packages/gatsby-plugin-graphql-codegen
   pluginBuilder.new("gatsby-plugin-graphql-codegen", {
-    codegen: false,
+    codegen: true,
     fileName: helper.joinPath("types", "gatsby-graphql.ts"),
     documentPaths: [
       helper.joinPath("src", "**", "*.{ts,tsx}"),

@@ -20,6 +20,7 @@ export type PluginMapping = {
   "gatsby-plugin-manifest": ManifestPluginOptions
   "gatsby-plugin-emotion": EmotionOptions
   "gatsby-plugin-google-tagmanager": GTMOptions
+  "gatsby-plugin-image": DefaultPluginOption
   "gatsby-plugin-sharp": DefaultPluginOption
   "gatsby-plugin-graphql-codegen": GraphqlCodegenOptions
   "gatsby-plugin-netlify": NetlifyOptions
