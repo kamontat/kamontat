@@ -4,4 +4,10 @@ export interface ThemeProperties {
   oppositeBackground: string
   text: string
   secondaryText: string
+  facebookIcon: string
+  githubIcon: string
+  linkedinIcon: string
+  twitterIcon: string
+  instagramIcon: string
+  youtubeIcon: string
 }

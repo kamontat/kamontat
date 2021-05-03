@@ -12,6 +12,7 @@ export interface SocialIconOptions extends BaseOptions {
   name: string
   url: string
   title?: string
+  color?: string
 }
 
 export interface SocialIconRootOptions extends SocialIconOptions {
@@ -72,7 +73,6 @@ const IconWrapper = styled(Link)`
   `}
 `
 
-// TODO Support color base on color theme mode
 export const SocialIcon = ({ Component, type, name, color }: SocialIconRootOptions): JSX.Element => {
   const goPath = `/go/${type ?? name}`
   return (

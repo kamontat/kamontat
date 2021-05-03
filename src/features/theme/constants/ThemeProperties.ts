@@ -7,7 +7,6 @@ import { darkTheme } from "./properties/dark"
 import { blackTheme } from "./properties/black"
 import { whiteTheme } from "./properties/white"
 
-// TODO: Remove white theme because it too similar with light theme
 const mapper = {
   [ThemeName.LIGHT]: Object.assign({}, baseTheme, lightTheme),
   [ThemeName.DARK]: Object.assign({}, baseTheme, darkTheme),
