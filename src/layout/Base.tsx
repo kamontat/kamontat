@@ -1,6 +1,7 @@
 import React from "react"
 import { css } from "twin.macro"
 import { Global, ThemeProvider } from "@emotion/react"
+import { Provider as ReakitProvider } from "reakit"
 
 import { ThemeName, ThemeProperties } from "../features/theme"
 import { useThemeContext } from "../features/theme/context"
@@ -36,8 +37,10 @@ export default ({ children }: BaseOptions): JSX.Element => {
   return (
     <React.Fragment>
       <ThemeProvider theme={themeContext}>
-        <StyleImporter theme={themeContext.properties} />
-        {children}
+        <ReakitProvider>
+          <StyleImporter theme={themeContext.properties} />
+          {children}
+        </ReakitProvider>
       </ThemeProvider>
     </React.Fragment>
   )
