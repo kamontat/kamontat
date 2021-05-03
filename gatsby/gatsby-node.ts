@@ -11,6 +11,7 @@ import { DataQueryQuery } from "../types/gatsby-graphql"
 import { PageBuilder } from "./builders/PageBuilder"
 
 type CreatePages = GatsbyNode["createPages"]
+type OnCreateWebpackConfig = GatsbyNode["onCreateWebpackConfig"]
 
 export const createPages: CreatePages = async ({ graphql, actions }) => {
   const builder = new PageBuilder(actions)
@@ -46,4 +47,15 @@ export const createPages: CreatePages = async ({ graphql, actions }) => {
       path: "cms",
       url: `https://app.contentful.com/spaces/${id}/home`,
     }))
+}
+
+export const onCreateWebpackConfig: OnCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      fallback: {
+        path: false,
+        stream: false,
+      },
+    },
+  })
 }
