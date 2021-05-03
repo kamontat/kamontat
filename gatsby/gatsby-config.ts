@@ -13,6 +13,7 @@ import { PluginMapping } from "./plugins"
 import { constants } from "./constants"
 
 import metaJson from "../data/metadata.json"
+import { FlagBuilder } from "./builders/FlagBuilder"
 
 export default ({ projectRoot }: TSConfigSetupOptions): GatsbyConfig => {
   const helper = new ConfigHelper(projectRoot ?? process.cwd())
@@ -21,7 +22,6 @@ export default ({ projectRoot }: TSConfigSetupOptions): GatsbyConfig => {
     path: helper.joinRootPath(".env"),
     encoding: "utf-8",
   })
-  // helper.error({ message: envResult.error.message })
 
   const metaBuilder = new MetadataBuilder<MetadataMapping>(metaJson)
     .new("description", helper.getPackageJson("description"))
@@ -143,5 +143,14 @@ export default ({ projectRoot }: TSConfigSetupOptions): GatsbyConfig => {
     labelFormat: helper.isDev() ? "[filename]-[local]" : "",
   })
 
-  return ConfigBuilder.new().apply("siteMetadata", metaBuilder).apply("plugins", pluginBuilder).build()
+  const flagBuilder = new FlagBuilder()
+
+  // https://github.com/gatsbyjs/gatsby/discussions/28331
+  flagBuilder.enable("PRESERVE_WEBPACK_CACHE")
+
+  return ConfigBuilder.new()
+    .apply("siteMetadata", metaBuilder)
+    .apply("plugins", pluginBuilder)
+    .apply("flags", flagBuilder)
+    .build()
 }
