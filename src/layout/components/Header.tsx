@@ -1,10 +1,14 @@
 import React from "react"
 import tw from "twin.macro"
-import { Link } from "gatsby-plugin-intl"
+import { IntlContextConsumer, changeLocale, Link } from "gatsby-plugin-intl"
 
 import { BaseOptions } from "../Base"
 import { IntlDropdown } from "./IntlDropdown"
 import { ThemeDropdown } from "./ThemeDropdown"
+import { Dropdown } from "./Dropdown"
+import { getLanguageName } from "../../features/intl"
+import { Theme, useTheme } from "@emotion/react"
+import { ThemeName } from "../../features/theme"
 
 const Navbar = tw.nav`
   flex items-center justify-between flex-wrap p-3
@@ -27,7 +31,7 @@ const NavBodyLeftContainer = tw.div`
 `
 
 const NavBodyRightContainer = tw.div`
-  flex
+  flex items-center
 `
 
 interface HeaderOptions extends BaseOptions {
@@ -35,6 +39,9 @@ interface HeaderOptions extends BaseOptions {
 }
 
 export const Header = ({ title }: HeaderOptions): JSX.Element => {
+  const IntlConsumer: React.Consumer<{ languages: string[]; language: string }> = IntlContextConsumer
+  const theme = useTheme()
+
   return (
     <Navbar>
       <NavTitleContainer>
@@ -43,8 +50,27 @@ export const Header = ({ title }: HeaderOptions): JSX.Element => {
       <NavBodyContainer>
         <NavBodyLeftContainer></NavBodyLeftContainer>
         <NavBodyRightContainer>
-          <IntlDropdown />
-          <ThemeDropdown />
+          <IntlConsumer>
+            {({ languages, language }) => {
+              return (
+                <Dropdown
+                  current={language}
+                  choices={languages}
+                  equally={(c, o) => c == o}
+                  toName={(t) => getLanguageName(t as string)}
+                  onMenu={(t) => changeLocale(t as string)}
+                />
+              )
+            }}
+          </IntlConsumer>
+
+          <Dropdown
+            current={theme}
+            choices={[ThemeName.DARK, ThemeName.BLACK, ThemeName.WHITE]}
+            equally={(c, o) => (c as Theme).name == o}
+            toName={(t) => (t as Theme)?.name ?? t}
+            onMenu={(t) => theme.newTheme({ name: t as ThemeName })}
+          />
         </NavBodyRightContainer>
       </NavBodyContainer>
     </Navbar>
