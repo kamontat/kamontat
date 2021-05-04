@@ -23,6 +23,11 @@ export class FlagBuilder extends SupportLogger implements Builder<FlagObject> {
     return this
   }
 
+  toggle(name: string, flag: boolean): this {
+    this.flags[name] = flag
+    return this
+  }
+
   build(): FlagObject {
     return this.flags
   }

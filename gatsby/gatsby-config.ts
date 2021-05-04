@@ -152,7 +152,7 @@ export default ({ projectRoot }: TSConfigSetupOptions): GatsbyConfig => {
   const flagBuilder = new FlagBuilder()
 
   // https://github.com/gatsbyjs/gatsby/discussions/28331
-  flagBuilder.enable("PRESERVE_WEBPACK_CACHE")
+  flagBuilder.enable("PRESERVE_WEBPACK_CACHE").toggle("QUERY_ON_DEMAND", !helper.isCI())
 
   return ConfigBuilder.new()
     .apply("siteMetadata", metaBuilder)
