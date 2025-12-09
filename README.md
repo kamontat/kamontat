@@ -10,10 +10,10 @@
 <h2 align="left">GitHub stats</h2>
 <p align="center">
   <a href="https://github.com/kamontat">
-    <img height=200 src="https://github-readme-stats.vercel.app/api?username=kamontat" />
+    <img height=200 src="https://github-readme-stats-cyyin.vercel.app/api?username=kamontat" />
   </a>
   <a href="https://github.com/kamontat">
-    <img height=200 src="https://github-readme-stats.vercel.app/api/top-langs?username=kamontat&layout=compact&langs_count=8&card_width=320" />
+    <img height=200 src="https://github-readme-stats-cyyin.vercel.app/api/top-langs?username=kamontat&layout=compact&langs_count=8&card_width=320" />
   </a>
 </p>
 
@@ -21,7 +21,7 @@
 <h2 align="left">GitHub Trophy</h2>
 <p align="center">
   <a href="https://github.com/kamontat">
-    <img alt="GitHub trophy" align="center" src="https://github-profile-trophy.vercel.app/?username=kamontat&column=5&margin-w=8&margin-h=8&no-bg=true" />
+    <img alt="GitHub trophy" align="center" src="https://github-profile-trophy-cyyin.vercel.app/?username=kamontat&column=5&margin-w=8&margin-h=8&no-bg=true" />
   </a>
 </p>
 
